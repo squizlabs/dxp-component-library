@@ -1,0 +1,23 @@
+@use '@common-styles/variables';
+
+.green-theme {
+  .header-paragraph {
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-xl);
+    background-color: var(--color-bg);
+    border-radius: var(--border-radius);
+
+    // Styles for general matrix view
+    position: relative;
+    z-index: var(--z-index-default);
+
+    &__title {
+      margin-bottom: var(--spacing-md);
+    }
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      padding: var(--spacing-sm);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@use '@styles/common/mixins';
+@use '@styles/common/variables';
+
+.stats-cards {
+  display: flex;
+  gap: variables.toRem(36);
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+
+  &__title {
+    @include mixins.flex-center-content;
+
+    margin-bottom: variables.toRem(36);
+  }
+
+  .stat-card {
+    @include mixins.flex-center-vertical;
+    // plus the size of the gap
+    max-width: calc(variables.toRem(200) + variables.toRem(36));
+
+    &__value {
+      background-color: var(--primary);
+      font-weight: var(--font-semibold);
+      font-size: var(--font-size-huge);
+      width: variables.toRem(200);
+      border-radius: 50%;
+      min-height: variables.toRem(200);
+      @include mixins.flex-center-content;
+
+      margin-bottom: var(--spacing-sm);
+    }
+
+    &__text {
+      font-size: var(--base-font-size);
+      text-align: center;
+      line-height: var(--font-size-sm);
+    }
+  }
+}

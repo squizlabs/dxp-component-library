@@ -1,0 +1,104 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "cards-manual",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a grid of cards.",
+  "displayName": "Cards",
+  "version": "1.2.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "grid_view",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "required": [
+          "cards"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title displayed above the cards."
+          },
+          "link": {
+            "type": "SquizLink",
+            "title": "Link",
+            "description": "A link displayed next to the title."
+          },
+          "cards": {
+            "type": "array",
+            "title": "Cards",
+            "description": "A list of cards to display.",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "title": "Card",
+              "properties": {
+                "contentType": {
+                  "type": "string",
+                  "title": "Content Type",
+                  "description": "The content type displayed above the card's heading."
+                },
+                "heading": {
+                  "type": "string",
+                  "title": "Heading",
+                  "description": "The main heading of the card."
+                },
+                "supportingText": {
+                  "type": "string",
+                  "title": "Supporting Text",
+                  "description": "The text displayed below the card's heading."
+                },
+                "link": {
+                  "type": "SquizLink",
+                  "title": "Link",
+                  "description": "A link associated with the card."
+                },
+                "image": {
+                  "type": "SquizImage",
+                  "title": "Image",
+                  "description": "An image displayed in the card's background."
+                }
+              },
+              "required": [
+                "heading",
+                "link"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

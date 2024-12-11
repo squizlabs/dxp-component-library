@@ -1,0 +1,98 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "cards-matrix",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a grid of cards populated with information from Matrix assets.",
+  "displayName": "Cards - Matrix",
+  "version": "1.3.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "grid_view",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "environment": [
+    {
+      "name": "API_IDENTIFIER",
+      "required": false
+    },
+    {
+      "name": "BASE_DOMAIN",
+      "required": false
+    },
+    {
+      "name": "BASE_PATH",
+      "required": false
+    }
+  ],
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "required": [
+          "cards"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title displayed above the cards."
+          },
+          "link": {
+            "type": "SquizLink",
+            "title": "Link",
+            "description": "A link displayed next to the title."
+          },
+          "cards": {
+            "type": "array",
+            "title": "Cards",
+            "description": "A list of cards to display in the grid.",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "type": "object",
+              "title": "Card",
+              "properties": {
+                "asset": {
+                  "type": "string",
+                  "title": "Card",
+                  "format": "matrix-asset-uri",
+                  "description": "Select a Matrix asset to display as a card in the grid."
+                }
+              },
+              "required": [
+                "asset"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Cards",
+  "link": {
+    "text": "CTA text link",
+    "url": "https://squiz.net",
+    "target": "_blank"
+  },
+  "rootnode": "matrix-asset://api-identifier/44954"
+}

@@ -1,0 +1,31 @@
+@mixin shared-icon-cards-theme {
+  display: block;
+
+  .icon-card {
+    text-align: center;
+
+    &__icon {
+      margin: 0 auto var(--spacing-md);
+    }
+
+    &__icon::after {
+      background-color: transparent;
+    }
+
+    svg {
+      width: 100%;
+
+      * {
+        fill: var(--color-text);
+      }
+    }
+
+    // Classes of specific svg paths
+    .pen-tip,
+    .mouse-pad,
+    .print,
+    .drop {
+      fill: var(--primary);
+    }
+  }
+}

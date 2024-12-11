@@ -1,0 +1,91 @@
+@use 'variables';
+
+@use './mixins' as mixins;
+
+@import 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap';
+
+h1,
+.heading-primary {
+  @include mixins.heading-styles(
+    var(--font-size-xxl),
+    var(--line-height-xxl),
+    var(--font-semibold),
+    var(--color-text),
+    var(--spacing-lg),
+    var(--spacing-lg)
+  );
+}
+
+h2,
+.heading-secondary {
+  @include mixins.heading-styles(
+    var(--font-size-xl),
+    var(--line-height-xl),
+    var(--font-semibold),
+    var(--color-text),
+    var(--spacing-md),
+    var(--spacing-md)
+  );
+}
+
+h3,
+.heading-tertiary {
+  @include mixins.heading-styles(
+    var(--font-size-lg),
+    var(--line-height-lg),
+    var(--font-semibold),
+    var(--spacing-md),
+    var(--spacing-md)
+  );
+}
+
+h4,
+.heading-quaternary {
+  @include mixins.heading-styles(
+    var(--font-size-md),
+    var(--line-height-md),
+    var(--font-semibold),
+    var(--spacing-sm),
+    var(--spacing-sm),
+    var(--spacing-sm)
+  );
+}
+
+h5,
+.heading-quinary {
+  @include mixins.heading-styles(
+    var(--font-size-sm),
+    var(--line-height-sm),
+    var(--font-semibold),
+    var(--spacing-sm),
+    var(--spacing-sm)
+  );
+}
+
+h6,
+.heading-senary {
+  @include mixins.heading-styles(
+    var(--base-font-size),
+    var(--line-height-sm),
+    var(--font-semibold),
+    var(--spacing-sm),
+    var(--spacing-sm)
+  );
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--spacing-md);
+  font-size: var(--base-font-size);
+}
+
+// text styles for tags, categories
+.text-tag {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  margin-bottom: variables.toRem(16);
+  display: block;
+}

@@ -1,0 +1,99 @@
+@use '@styles/common/variables';
+
+.single-column {
+  display: flex;
+  align-items: center;
+  gap: variables.toRem(60);
+
+  @media screen and (max-width: variables.$breakpoint-md) {
+    gap: variables.toRem(24);
+    flex-direction: column;
+  }
+
+  &.text-left {
+    .single-column__image {
+      order: 2;
+
+      @media screen and (max-width: variables.$breakpoint-md) {
+        order: 1;
+      }
+    }
+
+    .single-column__content {
+      order: 1;
+    }
+  }
+
+  &.text-right {
+    justify-content: end;
+
+    .single-column__image {
+      order: 1;
+
+      @media screen and (max-width: variables.$breakpoint-md) {
+        order: 1;
+      }
+    }
+
+    .single-column__content {
+      order: 2;
+    }
+
+    &.no-image {
+      justify-content: end;
+    }
+  }
+
+  &__image {
+    width: 50%;
+    max-height: variables.toRem(550);
+    overflow: hidden;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      width: 100%;
+      order: 1;
+    }
+  }
+
+  &__content {
+    width: 50%;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      width: 100%;
+      order: 2;
+    }
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  &__heading {
+    margin-bottom: variables.toRem(16);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-semibold);
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: variables.toRem(24);
+    border-left: variables.toRem(2) solid var(--black);
+    padding: variables.toRem(2) variables.toRem(24);
+    font-weight: var(--font-semibold);
+    font-size: variables.toRem(14);
+    color: var(--black);
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &::after {
+      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDggMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xLjcwNDkyIDBMMC4yOTQ5MjIgMS40MUw0Ljg3NDkyIDZMMC4yOTQ5MjIgMTAuNTlMMS43MDQ5MiAxMkw3LjcwNDkyIDZMMS43MDQ5MiAwWiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==');
+      height: variables.toRem(12);
+      width: variables.toRem(12);
+      margin-left: variables.toRem(24);
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+// For all fonts on website
+@mixin heading-styles(
+  $font-size,
+  $line-height,
+  $font-weight,
+  $color: var(--color-text),
+  $margin-bottom: var(--spacing-md),
+  $margin-top: var(--spacing-md)
+) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+  color: $color;
+  margin-bottom: $margin-bottom;
+  margin-top: $margin-top;
+}
+
+// Outline focus
+@mixin focus-outline($color: var(--color-focus)) {
+  outline: 2px solid $color;
+}
+
+// Flex mixins
+@mixin flex-center-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+@mixin center-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// Centering absolute element in both directions
+@mixin center-absolute-xy {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Centering absolute element vertically
+@mixin center-absolute-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// function for offset of banner
+@mixin set-left-offset($offsets) {
+  @each $breakpoint, $value in $offsets {
+    @media screen and (min-width: $breakpoint) {
+      left: $value;
+    }
+  }
+}
+
+@mixin border-gradient($direction, $width, $gradient) {
+  border: $width solid transparent;
+  border-image-slice: 1;
+  border-image-source: $gradient;
+  border-width: 0;
+
+  @if $direction == top {
+    border-top-width: $width;
+  } @else if $direction == bottom {
+    border-bottom-width: $width;
+  } @else if $direction == left {
+    border-left-width: $width;
+  } @else if $direction == right {
+    border-right-width: $width;
+  } @else if $direction == vertical {
+    border-top-width: $width;
+    border-bottom-width: $width;
+  } @else if $direction == horizontal {
+    border-left-width: $width;
+    border-right-width: $width;
+  } @else if $direction == all {
+    border-width: $width;
+  }
+}
+
+/* Expand sections outside container */
+// Styles to expand over the container - not needed in every project
+@mixin expand-container {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+}
+
+// Clip text with customizable number of lines
+@mixin clip-text($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

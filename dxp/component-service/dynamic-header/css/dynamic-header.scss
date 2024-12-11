@@ -1,0 +1,9 @@
+@use '@styles/common/variables';
+
+.header-paragraph {
+  font-size: var(--base-font-size);
+
+  .header-paragraph__title {
+    margin-bottom: variables.toRem(16);
+  }
+}

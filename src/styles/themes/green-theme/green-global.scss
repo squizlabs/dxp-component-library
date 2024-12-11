@@ -1,0 +1,100 @@
+@use '@common-styles/variables';
+
+.green-theme {
+  body {
+    font-family: var(--font);
+    transition: all 0.5s ease-in-out;
+    color: var(--color-text);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      top: 0;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgOCA4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMiIgaGVpZ2h0PSIyIiBmaWxsPSJibGFjayIvPgo8L3N2Zz4K');
+      z-index: var(--z-index-below);
+    }
+
+    /* 
+    ⚠️ Warning: Do not use "* { transition: all ... }" in production! 
+
+    This rule applies transitions to all elements and properties, which can cause performance issues and unintended animations.
+
+    It is left here for educational purposes only to demonstrate how all styles react when switching color themes. Use more specific transitions in real projects.
+    */
+    * {
+      transition:
+        all 0.5s ease-in-out,
+        color 0.2s ease;
+    }
+  }
+
+  h1 {
+    font-size: var(--font-size-xxl);
+    text-align: center;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+    color: var(--color-text);
+    font-weight: var(--font-semibold);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      font-size: var(--font-size-md);
+      line-height: var(--line-height-lg);
+    }
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-lg);
+  }
+
+  thead th {
+    background-color: var(--primary);
+    border-bottom: 1px solid var(--accent);
+  }
+
+  tbody td {
+    border-bottom: none;
+  }
+
+  tbody tr {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--accent);
+  }
+
+  pre {
+    background: var(--color-bg);
+    border-left: variables.toRem(10) solid var(--primary);
+    color: var(--color-text);
+    box-shadow: 1px 1px 5px var(--shadow);
+  }
+
+  kbd {
+    color: var(--color-text);
+  }
+
+  li::marker {
+    color: var(--accent);
+  }
+
+  .container {
+    background-color: transparent;
+    overflow: visible;
+  }
+
+  .banner + .header-paragraph {
+    margin-top: variables.toRem(-150);
+    margin-bottom: variables.toRem(100);
+  }
+}

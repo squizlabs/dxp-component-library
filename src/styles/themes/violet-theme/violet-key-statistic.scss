@@ -1,0 +1,31 @@
+@use '@common-styles/variables';
+
+.violet-theme {
+  .stats-cards {
+    justify-content: space-between;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      justify-content: center;
+    }
+
+    &__title {
+      justify-content: flex-start;
+    }
+  }
+
+  .stat-card {
+    &__value {
+      background-image: var(--primary);
+      color: transparent;
+      background-clip: text;
+      font-size: var(--font-size-huge);
+      line-height: var(--line-height-huge);
+      height: auto;
+      margin: 0;
+    }
+
+    &__text {
+      font-weight: var(--font-semibold);
+    }
+  }
+}

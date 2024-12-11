@@ -1,0 +1,132 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "banner",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a background media element such as a video, image, or a flat background color.",
+  "displayName": "Banner Component",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "ondemand_video",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "properties": {
+          "mediaType": {
+            "type": "string",
+            "title": "Media Type",
+            "description": "Select the type of background media: video, image, or a flat background color if none is selected.",
+            "enum": [
+              "video",
+              "image",
+              "none"
+            ],
+            "default": "none"
+          },
+          "heading": {
+            "type": "string",
+            "title": "Heading",
+            "description": "Enter text for the main heading."
+          }
+        },
+        "required": [
+          "mediaType",
+          "heading"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "required": [
+                "mediaType"
+              ],
+              "properties": {
+                "mediaType": {
+                  "const": "video"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "videoSource": {
+                  "type": "SquizLink",
+                  "title": "Internal Video Source",
+                  "description": "Link to the internal video asset."
+                }
+              },
+              "required": [
+                "videoSource"
+              ]
+            }
+          },
+          {
+            "if": {
+              "required": [
+                "mediaType"
+              ],
+              "properties": {
+                "mediaType": {
+                  "const": "image"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "image": {
+                  "type": "SquizImage",
+                  "title": "Image",
+                  "description": "Select the image to display in the banner."
+                }
+              },
+              "required": [
+                "image"
+              ]
+            }
+          }
+        ]
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "./example-data/example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    },
+    "video": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "./example-data/example-video.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

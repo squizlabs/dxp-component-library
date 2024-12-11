@@ -1,0 +1,129 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "icon-card",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a collection of cards with icons, headings, text content, and optional links.",
+  "displayName": "Icon Cards",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "insert_emoticon",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Icon Cards Content",
+        "required": [
+          "componentContent",
+          "componentConfiguration"
+        ],
+        "properties": {
+          "componentContent": {
+            "type": "object",
+            "title": "Content",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Section Title",
+                "description": "The title displayed above the icon cards section."
+              },
+              "cards": {
+                "type": "array",
+                "title": "Cards",
+                "description": "A list of cards to display.",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "title": "Icon Card",
+                  "properties": {
+                    "icon": {
+                      "type": "string",
+                      "title": "Icon Class",
+                      "description": "Select an icon to display on the card.",
+                      "enum": [
+                        "paintBucket",
+                        "pen",
+                        "printer",
+                        "tools"
+                      ]
+                    },
+                    "heading": {
+                      "type": "string",
+                      "title": "Heading",
+                      "description": "The card's heading text."
+                    },
+                    "textContent": {
+                      "type": "FormattedText",
+                      "title": "Content",
+                      "description": "The main text content displayed on the card."
+                    },
+                    "link": {
+                      "type": "SquizLink",
+                      "title": "Link",
+                      "description": "A link associated with the card."
+                    }
+                  },
+                  "required": [
+                    "textContent"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "cards"
+            ]
+          },
+          "componentConfiguration": {
+            "type": "object",
+            "title": "Icon Cards Configuration",
+            "properties": {
+              "numberOfColumns": {
+                "type": "string",
+                "title": "Number of Columns",
+                "description": "Select the number of columns to display: 2 Columns, 3 Columns, or 4 Columns.",
+                "enum": [
+                  "2 Columns",
+                  "3 Columns",
+                  "4 Columns"
+                ],
+                "default": "2 Columns"
+              }
+            },
+            "required": [
+              "numberOfColumns"
+            ]
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

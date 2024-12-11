@@ -1,0 +1,119 @@
+@use 'variables';
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--color-bg);
+  padding: variables.toRem(8) variables.toRem(16);
+  z-index: var(--z-index-menu);
+  overflow: visible;
+
+  &__brand img {
+    max-height: variables.toRem(50);
+    display: inline-block;
+  }
+
+  &__toggler {
+    display: none;
+    background-color: var(--accent);
+    border: none;
+    padding: var(--spacing-sm);
+    border-radius: variables.toRem(4);
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      display: block;
+    }
+  }
+
+  &__toggler-icon {
+    display: block;
+    width: var(--spacing-md);
+    height: variables.toRem(2);
+    background-color: var(--color-bg);
+    position: relative;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: var(--spacing-md);
+      height: variables.toRem(2);
+      background-color: var(--color-bg);
+      left: 0;
+    }
+
+    &::before {
+      top: variables.toRem(-6);
+    }
+
+    &::after {
+      top: variables.toRem(6);
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: 0;
+    margin: 0 var(--spacing-sm) 0 0;
+    list-style: none;
+    justify-content: center;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      flex-direction: column;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    li {
+      list-style-type: none;
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-text);
+    padding: var(--spacing-xs) var(--spacing-xs);
+    transition:
+      color 0.3s,
+      background-color 0.3s;
+    border-radius: variables.toRem(4);
+
+    &:hover,
+    &.active {
+      color: var(--color-bg);
+      background-color: var(--accent);
+    }
+
+    &.active {
+      color: var(--color-bg);
+    }
+  }
+}
+
+.collapse {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: variables.$breakpoint-md) {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: var(--spacing-sm) 0;
+    gap: var(--spacing-sm);
+
+    &.show {
+      display: flex;
+    }
+  }
+}

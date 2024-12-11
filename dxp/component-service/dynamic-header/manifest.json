@@ -1,0 +1,77 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "dynamic-header",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a heading and supporting text with a user-defined heading level.",
+  "displayName": "Dynamic Header",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "title",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Dynamic Header Content",
+        "required": [
+          "title"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The heading text to display."
+          },
+          "titleLevel": {
+            "type": "string",
+            "title": "Title Level",
+            "description": "Select the heading level from h1 to h6.",
+            "enum": [
+              "h1",
+              "h2",
+              "h3",
+              "h4",
+              "h5",
+              "h6"
+            ],
+            "default": "h2"
+          },
+          "content": {
+            "type": "FormattedText",
+            "title": "Content",
+            "description": "The text displayed below the heading."
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

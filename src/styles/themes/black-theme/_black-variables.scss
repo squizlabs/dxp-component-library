@@ -1,0 +1,15 @@
+@use '@common-styles/shared-themes/shared-theme-mixin';
+
+/* Black theme overrides */
+.black-theme {
+  --color-bg: rgb(37 37 37);
+  --color-text: rgb(255 255 255);
+  --primary: rgb(195 100 124);
+  --accent: rgb(191 24 35);
+  --primary-darker: color-mix(in srgb, var(--primary) 80%, rgb(0 0 0) 20%);
+  --dark-gray: rgb(27 27 27);
+  --light-gray: rgb(48 48 48);
+
+  // Include shared theme settings
+  @include shared-theme-mixin.shared-theme-settings;
+}

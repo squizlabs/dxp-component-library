@@ -1,0 +1,17 @@
+{
+  "title": "What our customers are saying",
+  "testimonials": [
+    {
+      "text": "<p>Amazing service and workshops. Highly recommended. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies.</p>",
+      "author": "- Great mind told that"
+    },
+    {
+      "text": "<p>Keep in mind that if you take a tour through a hospital and look at every machine with an on and off switch that is brought into the service of diagnosing the human condition.</p> <p>That machine is based on principles of physics discovered by a physicist in a machine designed by an engineer.</p>",
+      "author": "Neil deGrasse Tyson Ipsum"
+    },
+    {
+      "text": "<p>Ever since the Industrial Revolution, investments in science and technology have proved to be reliable engines of economic growth. If homegrown interest in those fields is not regenerated soon, the comfortable lifestyle to which Americans have become accustomed will draw to a rapid close.</p>",
+      "author": "Neil deGrasse"
+    }
+  ]
+}

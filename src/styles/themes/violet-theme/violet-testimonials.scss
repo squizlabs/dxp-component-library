@@ -1,0 +1,59 @@
+@use '@common-styles/variables';
+
+.violet-theme {
+  .testimonials {
+    &__track {
+      padding: 0 0 variables.toRem(50);
+    }
+
+    &__item {
+      padding: var(--spacing-lg) var(--spacing-md);
+      background: var(--primary);
+      border-radius: var(--border-radius);
+      color: var(--color-bg);
+      padding-bottom: variables.toRem(50);
+      position: relative;
+      align-items: flex-start;
+      font-style: italic;
+
+      p {
+        text-align: left;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: var(--z-index-below);
+        bottom: variables.toRem(-30);
+        left: variables.toRem(150);
+        width: variables.toRem(100);
+        height: variables.toRem(100);
+        background-color: var(--gradient-blue);
+        border-radius: var(--border-radius);
+        transform: rotate(45deg);
+      }
+    }
+
+    &__author {
+      font-style: normal;
+    }
+
+    &__button {
+      width: variables.toRem(40);
+      height: variables.toRem(60);
+
+      &--prev {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iNjIiIHZpZXdCb3g9IjAgMCAzNiA2MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMkwzMyAzMC42NDEyIiBzdHJva2U9IiNFREFBNUMiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0zMyAzMC42NDEyTDMgNTkuMjgyNSIgc3Ryb2tlPSIjRURBQTVDIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K');
+        transform: rotate(180deg);
+        // Arrows styles are adjusted in matrix
+        margin-left: calc(-20vw + 20%);
+      }
+
+      &--next {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iNjIiIHZpZXdCb3g9IjAgMCAzNiA2MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMgMkwzMyAzMC42NDEyIiBzdHJva2U9IiNFREFBNUMiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0zMyAzMC42NDEyTDMgNTkuMjgyNSIgc3Ryb2tlPSIjRURBQTVDIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K');
+        transform: rotate(0deg);
+        margin-right: calc(-20vw + 20%);
+      }
+    }
+  }
+}

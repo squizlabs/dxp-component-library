@@ -1,0 +1,93 @@
+@use '@common-styles/variables';
+
+.violet-theme {
+  body {
+    background-color: var(--color-bg);
+    font-family: var(--font);
+    transition: all 0.5s ease-in-out;
+    color: var(--color-text);
+
+    /* 
+    ⚠️ Warning: Do not use "* { transition: all ... }" in production! 
+
+    This rule applies transitions to all elements and properties, which can cause performance issues and unintended animations.
+
+    It is left here for educational purposes only to demonstrate how all styles react when switching color themes. Use more specific transitions in real projects.
+    */
+    * {
+      transition:
+        all 0.5s ease-in-out,
+        color 0.2s ease;
+    }
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+    color: var(--color-text);
+    font-weight: var(--font-semibold);
+    font-family: var(--font-headings);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--line-height-xl);
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-lg);
+    }
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+    color: var(--color-text);
+    font-weight: var(--font-semibold);
+    font-family: var(--font-headings);
+    line-height: var(--line-height-md);
+  }
+
+  p {
+    font-size: var(--base-font-size);
+    font-weight: var(--font-normal);
+    line-height: var(--line-height-sm);
+  }
+
+  thead th {
+    background-color: var(--secondary);
+    border-bottom: 1px solid var(--gradient-blue);
+  }
+
+  tbody td {
+    border-bottom: none;
+  }
+
+  tbody tr {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--gradient-blue);
+  }
+
+  pre {
+    background: var(--secondary);
+    border-left: variables.toRem(10) solid var(--gradient-blue);
+    color: var(--color-text);
+  }
+
+  kbd {
+    color: var(--color-text);
+  }
+
+  li::marker {
+    color: var(--accent);
+  }
+
+  .container {
+    background-color: transparent;
+    overflow: visible;
+  }
+
+  .banner + .header-paragraph {
+    margin-top: variables.toRem(-150);
+    margin-bottom: variables.toRem(150);
+  }
+
+  section {
+    margin-bottom: variables.toRem(150);
+  }
+}

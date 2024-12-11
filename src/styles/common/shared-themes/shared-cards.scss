@@ -1,0 +1,108 @@
+@use '../mixins';
+@use '../variables';
+
+@mixin shared-cards-theme {
+  .cards {
+    &__header {
+      align-items: center;
+      margin-bottom: var(--spacing-xl);
+
+      @media screen and (max-width: variables.$breakpoint-md) {
+        align-items: stretch;
+        text-align: center;
+        margin-bottom: var(--spacing-md);
+      }
+    }
+
+    &__title {
+      margin: 0;
+    }
+
+    &__link {
+      padding: var(--spacing-sm) var(--spacing-md);
+      background-color: var(--color-bg);
+      left: var(--spacing-sm);
+      position: relative;
+
+      &::after {
+        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDggMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xLjcwNDkyIDBMMC4yOTQ5MjIgMS40MUw0Ljg3NDkyIDZMMC4yOTQ5MjIgMTAuNTlMMS43MDQ5MiAxMkw3LjcwNDkyIDZMMS43MDQ5MiAwWiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4KCg==');
+        margin-left: var(--spacing-sm);
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__card {
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease-in-out;
+
+      &:not(.cards__card--has-image) {
+        background-color: var(--color-text);
+      }
+
+      &:hover {
+        background-color: var(--color-text);
+
+        .cards__card-link {
+          padding-left: 0;
+          text-decoration: none;
+        }
+
+        .cards__heading {
+          line-height: var(--line-height-lg);
+          margin: 0;
+        }
+
+        .cards__content-type {
+          display: block;
+        }
+
+        .cards__supporting-text {
+          @include mixins.clip-text(10);
+        }
+      }
+    }
+
+    &__heading {
+      text-transform: uppercase;
+      line-height: var(--line-height-xl);
+      font-size: var(--font-size-sm);
+      max-width: 100%;
+      margin-top: auto;
+      font-weight: var(--font-bold);
+
+      a {
+        padding: var(--spacing-xs);
+        color: var(--color-bg);
+        background-color: var(--color-text);
+        box-decoration-break: clone;
+        transition: padding 0s ease;
+      }
+    }
+
+    &__content-type {
+      color: var(--accent);
+      text-transform: capitalize;
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-lg);
+      @include mixins.clip-text(1);
+    }
+
+    &__image {
+      filter: saturate(50%);
+    }
+
+    &__content-type,
+    &__supporting-text {
+      overflow: hidden;
+      margin: 0;
+      display: none;
+      transition:
+        opacity 0.4s ease-in-out,
+        max-height 0.4s ease-in-out;
+    }
+  }
+}

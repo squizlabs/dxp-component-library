@@ -1,0 +1,76 @@
+@use 'mixins';
+@use 'variables';
+
+// This component will not be added as a Component Service but will be integrated directly into the CMS.
+.footer {
+  border-top: 1px solid var(--color-text);
+  background: var(--color-bg);
+
+  .container {
+    @include mixins.flex-center-content;
+
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: variables.toRem(40);
+    padding: var(--spacing-lg) var(--spacing-sm) var(--spacing-sm);
+  }
+
+  .heading-quinary {
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: var(--line-height-md);
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  &__company-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    font-size: var(--base-font-size);
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: variables.toRem(10);
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__copyright {
+    width: 100%;
+    border-top: 1px solid var(--color-bg);
+    padding: var(--spacing-sm) 0 0;
+  }
+}
+
+.violet-theme .footer,
+.green-theme .footer {
+  background: var(--primary);
+  border-top: none;
+}
+
+.violet-theme {
+  .footer {
+    color: var(--color-bg);
+
+    .heading-quinary {
+      color: var(--primary);
+    }
+  }
+}

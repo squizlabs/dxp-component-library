@@ -1,0 +1,79 @@
+@use 'sass:math';
+
+/* transform px to rem
+Output example: #{toRem(12)}; */
+@function toRem($px-value) {
+  @return calc(#{$px-value} / var(--px-base) * var(--px-to-rem));
+}
+
+:root {
+  --px-base: 16;
+  --px-to-rem: 1rem;
+
+  /* General */
+  --font: 'Open Sans', sans-serif;
+  --font-headings: 'Roboto Condensed', sans-serif;
+  --white: rgb(255 255 255);
+  --black: rgb(0 0 0);
+  --color-bg: rgb(255 255 255);
+  --color-bg-alt: rgb(239 239 239);
+  --color-text: rgb(0 0 0);
+  --color-focus: rgb(0 0 0);
+  --primary: rgb(242 242 242);
+  --accent: rgb(191 24 35);
+  --overlay-background: rgb(0 0 0 / 50%);
+  --default-background-color: rgb(204 204 204);
+  --gray: rgb(217 217 217);
+  --primary-darker: color-mix(in srgb, var(--primary) 80%, rgb(0 0 0) 20%);
+
+  /* Font sizes */
+  --font-size-huge: #{toRem(56)};
+  --font-size-xxl: #{toRem(48)}; // Very large text, e.g., main headers
+  --font-size-xl: #{toRem(40)}; // Extra large text, e.g., section headers
+  --font-size-lg: #{toRem(32)}; // Large text, e.g., subheaders
+  --font-size-md: #{toRem(24)}; // Medium text, e.g., sub-subheaders
+  --font-size-sm: #{toRem(20)}; // Small text, e.g., emphasized text
+  --font-size-xs: #{toRem(14)}; // Small text, e.g., spans
+  --base-font-size: #{toRem(16)}; // Base font size for paragraphs
+
+  /* Spacing */
+  --spacing-xs: #{toRem(8)};
+  --spacing-sm: #{toRem(16)};
+  --spacing-md: #{toRem(24)};
+  --spacing-lg: #{toRem(48)};
+  --spacing-xl: #{toRem(64)};
+  --spacing-xxl: #{toRem(160)};
+
+  /* Weights */
+  --font-normal: 400;
+  --font-semibold: 500;
+  --font-bold: 600;
+
+  /* Line heights */
+  --base-line-height: #{toRem(24)}; // for paragraphs
+  --line-height-xxl: #{toRem(48)}; // for h1
+  --line-height-xl: #{toRem(40)}; // for h2
+  --line-height-lg: #{toRem(32)}; // for h3
+  --line-height-md: #{toRem(28)}; // for h4, blockquote
+  --line-height-sm: #{toRem(24)}; // for h5, h6
+
+  /* Z-indexes */
+  --z-index-below: -1;
+  --z-index-default: 1;
+  --z-index-above: 2;
+  --z-index-menus: 5;
+
+  // global styles for switcher
+  --switcher-bg: rgb(255 255 255);
+  --switcher-text: rgb(0 0 0);
+  --switcher-bg-hover: rgb(242 242 242);
+
+  /* Container width */
+  --container: #{toRem(1200)};
+}
+
+/* Breakpoints */
+$breakpoint-xs: 30rem;
+$breakpoint-sm: 48rem;
+$breakpoint-md: 62rem;
+$breakpoint-lg: 75rem;

@@ -1,0 +1,11 @@
+@use '@common-styles/shared-themes/shared-theme-mixin';
+
+.white-theme {
+  --color-bg: rgb(255 255 255);
+  --color-text: rgb(37 37 37);
+  --primary: rgb(191 24 35);
+  --accent: rgb(195 100 124);
+  --light-primary: rgb(250 240 240);
+  // Include shared theme settings
+  @include shared-theme-mixin.shared-theme-settings;
+}

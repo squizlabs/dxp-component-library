@@ -1,0 +1,41 @@
+@use '@common-styles/shared-themes/shared-global';
+@use '@common-styles/variables';
+
+.black-theme {
+  @include shared-global.shared-global-theme;
+
+  body {
+    &::before {
+      background-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 50%,
+          var(--color-bg) 50%,
+          var(--color-bg)
+        ),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgzIiBoZWlnaHQ9IjMyOCIgdmlld0JveD0iMCAwIDI4MyAzMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjAuNzA2MDI2IiB5PSItMS4xOTIwOWUtMDciIHdpZHRoPSIxOTkuMzA2IiBoZWlnaHQ9IjE5OS4zMDYiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA2MDI2IC0wLjcwODE4NiAwLjcwNjAyNiAwLjcwODE4NiAwLjIwNzU1MyAxNDIuMzU0KSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iMC43MDYwMjYiIHk9Ii0xLjE5MjA5ZS0wNyIgd2lkdGg9IjE5OS4zMDYiIGhlaWdodD0iMTk5LjMwNiIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDYwMjYgLTAuNzA4MTg2IDAuNzA2MDI2IDAuNzA4MTg2IDAuMjA3NTUzIDE4Ni40ODkpIiBzdHJva2U9IiNDMzY0N0MiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+      background-size:
+        0 155vw,
+        variables.toRem(300) 250vw;
+      right: 0;
+      left: variables.toRem(-150);
+    }
+
+    &::after {
+      background-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 50%,
+          var(--color-bg) 50%,
+          var(--color-bg)
+        ),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgzIiBoZWlnaHQ9IjM1OCIgdmlld0JveD0iMCAwIDI4MyAzNTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjAuNzA3MTA3IiB5PSIxNDEuNDIxIiB3aWR0aD0iMTk5IiBoZWlnaHQ9IjE5OSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDAuNzA3MTA3IDE0MS40MjEpIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB4PSIwLjcwNzEwNyIgeT0iMTg1LjQyMSIgd2lkdGg9IjE5OSIgaGVpZ2h0PSIxOTkiIHRyYW5zZm9ybT0icm90YXRlKC00NSAwLjcwNzEwNyAxODUuNDIxKSIgc3Ryb2tlPSIjQzM2NDdDIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iMC43MDcxMDciIHk9IjIxNi40MjEiIHdpZHRoPSIxOTkiIGhlaWdodD0iMTk5IiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMC43MDcxMDcgMjE2LjQyMSkiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=');
+      background-size:
+        0 155vw,
+        variables.toRem(300) 150vw;
+      left: 0;
+      right: variables.toRem(-150);
+      transform: scaleX(-1);
+    }
+  }
+}

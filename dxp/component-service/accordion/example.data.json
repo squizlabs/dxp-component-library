@@ -1,0 +1,17 @@
+{
+  "title": "Accordion component",
+  "accordion": [
+    {
+      "heading": "Accordion One",
+      "content": "<p>This is accordion one!</p>"
+    },
+    {
+      "heading": "Accordion Two",
+      "content": "<p>This is accordion two!</p>"
+    },
+    {
+      "heading": "Accordion Three",
+      "content": "<p>An exploration of contemporary themes through the lens of modern art, featuring innovative works that challenge traditional boundaries and invite viewers to see the world in new ways.  </p><p>An exploration of contemporary themes through the lens of modern art, featuring innovative works that challenge traditional boundaries and invite viewers to see the world in new ways.  An exploration of contemporary themes through the lens of modern art, featuring innovative works that challenge traditional boundaries and invite viewers to see the world in new ways.  </p>"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+@use '@common-styles/variables';
+
+/* Violet theme overrides */
+.violet-theme {
+  /* General color settings */
+  --color-bg: rgb(255 255 255);
+  --color-text: rgb(37 37 37);
+  --primary: linear-gradient(
+    18deg,
+    var(--gradient-blue) 35%,
+    var(--gradient-violet)
+  );
+  --accent: rgb(237 170 92);
+  --secondary: rgb(245 237 251);
+
+  /* gradient colors */
+  --gradient-blue: rgba(48 63 131 / 100%);
+  --gradient-violet: rgba(116 70 151 / 100%);
+
+  /* Font settings */
+  --font: 'Open Sans', sans-serif; // Default font for body text
+  --font-headings: 'Poppins', sans-serif; // Font for headings and titles
+
+  /* Font sizes */
+  --font-size-huge: #{variables.toRem(90)}; // for number section
+  --font-size-xxl: #{variables.toRem(64)}; // XXL text, e.g., h0
+  --font-size-xl: #{variables.toRem(42)}; // Extra large text, e.g., main headers
+  --font-size-lg: #{variables.toRem(38)}; // Large text, e.g., section headers
+  --font-size-md: #{variables.toRem(20)}; // Medium text, e.g., subheaders
+  --font-size-xs: #{variables.toRem(16)}; // Small text, e.g., emphasized text
+  --base-font-size: #{variables.toRem(18)}; // Base font size for body text
+
+  /* Spacing settings */
+  --spacing-sm: #{variables.toRem(16)};
+  --spacing-md: #{variables.toRem(32)};
+  --spacing-lg: #{variables.toRem(64)};
+  --spacing-xl: #{variables.toRem(80)};
+  --spacing-xxl: #{variables.toRem(150)};
+
+  /* Line height settings */
+  --line-height-huge: #{variables.toRem(140)}; // for numbers section
+  --line-height-xl: #{variables.toRem(70)}; // Line height for main headers
+  --line-height-lg: #{variables.toRem(50)}; // Line height for section headers
+  --line-height-md: #{variables.toRem(32)}; // Line height for subheaders
+  --line-height-sm: #{variables.toRem(26)}; // Line height for body text
+
+  /* Additional Violet theme specific properties */
+  --box-shadow: 1px 1px 5px 0 rgb(117 71 151 / 20%);
+  --border-radius: #{variables.toRem(20)};
+
+  /* Media Queries */
+  $breakpoint-lg: 82rem;
+
+  /* Container width */
+  --container: #{variables.toRem(1150)};
+}
+
+$banner-left-offsets: (
+  82rem: -80%,
+  100rem: -50%,
+  125rem: -25%
+);
+
+@mixin width-container {
+  display: flex;
+  max-width: var(--container);
+  margin: 0 auto;
+}

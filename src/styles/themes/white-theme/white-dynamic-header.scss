@@ -1,0 +1,5 @@
+@use '@common-styles/shared-themes/shared-dynamic-header';
+
+.white-theme {
+  @include shared-dynamic-header.shared-dynamic-header-theme;
+}

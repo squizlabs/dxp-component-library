@@ -1,0 +1,124 @@
+@use '@styles/common/mixins';
+@use '@styles/common/variables';
+
+.cards {
+  display: grid;
+  gap: var(--spacing-md);
+  padding: 0;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: variables.$breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: variables.$breakpoint-sm) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &__header {
+    display: flex;
+    gap: var(--spacing-sm) var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+
+  &__link {
+    margin-left: auto;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      margin-left: 0;
+    }
+  }
+
+  &__card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    position: relative;
+    padding: var(--spacing-md);
+    aspect-ratio: 0.55 / 1;
+    background-color: var(--color-bg-alt);
+
+    &--has-image {
+      color: var(--color-bg);
+      background-color: transparent;
+    }
+
+    &:hover {
+      .cards__image {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &:not(.cards__card--has-image) .cards__card-link {
+    &:focus-visible,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__heading {
+    color: inherit;
+    @include mixins.clip-text(2);
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    z-index: var(--z-index-below);
+
+    &::before {
+      content: '';
+      width: inherit;
+      height: inherit;
+      position: absolute;
+      top: inherit;
+      left: inherit;
+      background-color: var(--black);
+      opacity: 0.3;
+    }
+  }
+
+  &__content-type {
+    text-transform: uppercase;
+    @include mixins.clip-text(2);
+  }
+
+  &__card-link {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    // Make the whole card area clickable, not just the title
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 2px solid transparent;
+      z-index: var(--z-index-default);
+    }
+  }
+
+  &__supporting-text {
+    @include mixins.clip-text(6);
+  }
+}

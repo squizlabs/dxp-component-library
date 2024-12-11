@@ -1,0 +1,161 @@
+@use '../variables';
+
+@mixin shared-global-theme {
+  body {
+    background-color: var(--color-bg);
+    font-family: var(--font);
+    transition: background-color 0.5s ease-in-out;
+    color: var(--color-text);
+    position: relative;
+    overflow-x: hidden;
+
+    &::after,
+    &::before {
+      content: '';
+      background-repeat: repeat-y;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: var(--z-index-below);
+
+      @media screen and (max-width: variables.$breakpoint-md) {
+        content: none;
+      }
+    }
+
+    &::before {
+      background-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 50%,
+          var(--color-bg) 50%,
+          var(--color-bg)
+        ),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgzIiBoZWlnaHQ9IjMyOCIgdmlld0JveD0iMCAwIDI4MyAzMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjAuNzA2MDI2IiB5PSItMS4xOTIwOWUtMDciIHdpZHRoPSIxOTkuMzA2IiBoZWlnaHQ9IjE5OS4zMDYiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA2MDI2IC0wLjcwODE4NiAwLjcwNjAyNiAwLjcwODE4NiAwLjIwNzU1MyAxNDIuMzU0KSIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iMC43MDYwMjYiIHk9Ii0xLjE5MjA5ZS0wNyIgd2lkdGg9IjE5OS4zMDYiIGhlaWdodD0iMTk5LjMwNiIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDYwMjYgLTAuNzA4MTg2IDAuNzA2MDI2IDAuNzA4MTg2IDAuMjA3NTUzIDE4Ni40ODkpIiBzdHJva2U9IiNDMzY0N0MiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+      background-size:
+        0 155vw,
+        variables.toRem(300) 250vw;
+      right: 0;
+      left: variables.toRem(-150);
+    }
+
+    &::after {
+      background-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 50%,
+          var(--color-bg) 50%,
+          var(--color-bg)
+        ),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgzIiBoZWlnaHQ9IjM1OCIgdmlld0JveD0iMCAwIDI4MyAzNTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjAuNzA3MTA3IiB5PSIxNDEuNDIxIiB3aWR0aD0iMTk5IiBoZWlnaHQ9IjE5OSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ1IDAuNzA3MTA3IDE0MS40MjEpIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cmVjdCB4PSIwLjcwNzEwNyIgeT0iMTg1LjQyMSIgd2lkdGg9IjE5OSIgaGVpZ2h0PSIxOTkiIHRyYW5zZm9ybT0icm90YXRlKC00NSAwLjcwNzEwNyAxODUuNDIxKSIgc3Ryb2tlPSIjQzM2NDdDIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHJlY3QgeD0iMC43MDcxMDciIHk9IjIxNi40MjEiIHdpZHRoPSIxOTkiIGhlaWdodD0iMTk5IiB0cmFuc2Zvcm09InJvdGF0ZSgtNDUgMC43MDcxMDcgMjE2LjQyMSkiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=');
+      background-size:
+        0 155vw,
+        variables.toRem(300) 150vw;
+      left: 0;
+      right: variables.toRem(-150);
+      transform: scaleX(-1);
+    }
+
+    /* 
+    ⚠️ Warning: Do not use "* { transition: all ... }" in production! 
+
+    This rule applies transitions to all elements and properties, which can cause performance issues and unintended animations.
+
+    It is left here for educational purposes only to demonstrate how all styles react when switching color themes. Use more specific transitions in real projects.
+    */
+    * {
+      transition:
+        all 0.5s ease-in-out,
+        color 0.2s ease;
+    }
+  }
+
+  h1,
+  h2 {
+    display: inline-block;
+    position: relative;
+    background: var(--color-text);
+    text-transform: uppercase;
+    color: var(--color-bg);
+    font-family: var(--font-headings);
+    font-weight: var(--font-bold);
+    padding: variables.toRem(10) variables.toRem(20);
+  }
+
+  h1 {
+    font-size: var(--font-size-xxl);
+    line-height: var(--spacing-lg);
+  }
+
+  h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xl);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100vw;
+      height: 1px;
+      background: var(--color-text);
+      transform: translateY(-50%);
+      z-index: var(--z-index-below);
+    }
+  }
+
+  a {
+    color: var(--color-text);
+  }
+
+  p {
+    line-height: var(--base-line-height);
+    font-size: var(--base-font-size);
+  }
+
+  thead th {
+    background-color: var(--light-gray);
+    border-bottom: 1px solid var(--accent);
+  }
+
+  tbody td {
+    border-bottom: none;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: var(--dark-gray);
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--color-bg);
+  }
+
+  pre {
+    background: var(--black);
+    border-left: variables.toRem(10) solid var(--accent);
+    color: var(--color-text);
+  }
+
+  kbd {
+    color: var(--color-bg);
+  }
+
+  li::marker {
+    color: var(--primary);
+  }
+
+  .navbar__link:hover,
+  .navbar__link.active {
+    color: var(--color-bg);
+    background-color: var(--primary);
+  }
+
+  section {
+    overflow: hidden;
+  }
+
+  pre code {
+    color: var(--white);
+  }
+
+}

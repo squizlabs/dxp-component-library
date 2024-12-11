@@ -1,0 +1,68 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "blockquote",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a quote with the author's name.",
+  "displayName": "Block Quote",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "announcement",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Block Quote content",
+        "required": [
+          "quote"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title displayed above the quote."
+          },
+          "quote": {
+            "type": "FormattedText",
+            "title": "Quote",
+            "description": "The text of the quote."
+          },
+          "author": {
+            "type": "string",
+            "title": "Author",
+            "description": "The name of the quote's author."
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": ""
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

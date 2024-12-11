@@ -1,0 +1,26 @@
+@use '@common-styles/variables';
+
+.green-theme {
+  .blockquote {
+    border-left: none;
+    font-style: italic;
+    box-shadow: var(--box-shadow);
+    background-color: var(--color-bg);
+    text-align: center;
+    border-radius: var(--border-radius);
+
+    &__content {
+      padding: var(--spacing-md) var(--spacing-xl);
+
+      @media screen and (max-width: variables.$breakpoint-md) {
+        padding: var(--spacing-md);
+      }
+    }
+
+    &__author {
+      margin-top: var(--spacing-sm);
+      font-size: var(--base-font-size);
+      font-weight: var(--font-bold);
+    }
+  }
+}

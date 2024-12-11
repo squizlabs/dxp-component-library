@@ -1,0 +1,43 @@
+{
+  "componentContent": {
+    "title": "Our Services",
+    "cards": [
+      {
+        "heading": "test",
+        "icon": "pen",
+        "textContent": "The Big Oxmox advised her not to do so, because there were thousands."
+      },
+      {
+        "icon": "tools",
+        "textContent": "Wild Question Marks and devious",
+        "link": {
+          "text": "Jelly liquorice icing gummi",
+          "url": "https://squiz.net",
+          "target": "_self"
+        }
+      },
+      {
+        "heading": "Short Heading",
+        "icon": "paintBucket",
+        "textContent": "Named Duden flows by their place and supplies it",
+        "link": {
+          "text": "Jelly liquorice icing gummi",
+          "url": "https://squiz.net",
+          "target": "_self"
+        }
+      },
+      {
+        "icon": "printer",
+        "textContent": "Named Duden flows by their place and supplies it",
+        "link": {
+          "text": "Jelly liquorice icing gummi",
+          "url": "https://squiz.net",
+          "target": "_self"
+        }
+      }
+    ]
+  },
+  "componentConfiguration": {
+    "numberOfColumns": "4 Columns"
+  }
+}

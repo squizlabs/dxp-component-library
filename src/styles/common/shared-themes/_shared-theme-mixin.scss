@@ -1,0 +1,32 @@
+@use '../variables';
+
+@mixin shared-theme-settings {
+  /* Font settings */
+  --font: 'Roboto', sans-serif; // Default font for body text
+  --font-headings: 'Roboto Condensed', sans-serif; // Font for headings and titles
+
+  /* Font sizes */
+  --font-size-xxl: #{variables.toRem(64)};
+  --font-size-xl: #{variables.toRem(38)};
+  --font-size-lg: #{variables.toRem(24)};
+  --font-size-xs: #{variables.toRem(16)};
+  --base-font-size: #{variables.toRem(18)};
+
+  /* Spacing settings */
+  --spacing-xs: #{variables.toRem(8)};
+  --spacing-sm: #{variables.toRem(16)};
+  --spacing-md: #{variables.toRem(24)};
+  --spacing-lg: #{variables.toRem(64)};
+  --spacing-xl: #{variables.toRem(80)};
+  --spacing-xxl: #{variables.toRem(128)};
+
+  /* Line height settings */
+  --base-line-height: #{variables.toRem(24)};
+  --line-height-xl: #{variables.toRem(48)};
+  --line-height-lg: #{variables.toRem(40)};
+  --line-height-md: #{variables.toRem(28)};
+  --line-height-sm: #{variables.toRem(24)};
+
+  /* Container width */
+  --container: #{variables.toRem(1300)};
+}

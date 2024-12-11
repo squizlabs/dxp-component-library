@@ -1,0 +1,83 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "testimonials",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays testimonials in a slider format.",
+  "displayName": "Testimonials",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "recent_actors",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Section Title",
+            "description": "The title displayed above the testimonials section."
+          },
+          "testimonials": {
+            "title": "Testimonial Items",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "title": "Testimonial",
+              "properties": {
+                "text": {
+                  "type": "FormattedText",
+                  "title": "Text Content",
+                  "description": "The testimonial text displayed inside the slide."
+                },
+                "author": {
+                  "type": "string",
+                  "title": "Author",
+                  "description": "The author's name displayed below the testimonial text."
+                }
+              },
+              "required": [
+                "text",
+                "author"
+              ]
+            }
+          }
+        },
+        "required": [
+          "testimonials"
+        ]
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

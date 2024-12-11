@@ -1,0 +1,5 @@
+@use '@common-styles/shared-themes/shared-dynamic-header';
+
+.black-theme {
+  @include shared-dynamic-header.shared-dynamic-header-theme;
+}

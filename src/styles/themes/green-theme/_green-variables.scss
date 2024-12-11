@@ -1,0 +1,41 @@
+@use '@common-styles/variables';
+
+/* Green theme overrides */
+.green-theme {
+  --color-bg: rgb(255 255 255);
+  --color-text: rgb(37 37 37);
+  --primary: rgb(201 218 207);
+  --accent: rgb(0 98 111);
+  --primary-darker: color-mix(in srgb, var(--primary) 80%, rgb(0 0 0) 20%);
+  --overlay: rgba(45 87 85 / 70%);
+  --shadow: rgb(233 233 233);
+  --font: 'Lato', sans-serif;
+
+  /* Font sizes */
+  --font-size-xxl: #{variables.toRem(68)};
+  --font-size-xl: #{variables.toRem(46)};
+  --font-size-lg: #{variables.toRem(38)};
+  --font-size-md: #{variables.toRem(32)};
+  --font-size-xs: #{variables.toRem(16)};
+  --base-font-size: #{variables.toRem(18)};
+
+  /* Spacing settings */
+  --spacing-xl: #{variables.toRem(80)};
+  --spacing-lg: #{variables.toRem(50)};
+  --spacing-md: #{variables.toRem(36)};
+  --spacing-sm: #{variables.toRem(20)};
+  --spacing-xm: #{variables.toRem(14)};
+
+  /* Line height settings */
+  --line-height-xl: #{variables.toRem(56)};
+  --line-height-lg: #{variables.toRem(38)};
+  --line-height-md: #{variables.toRem(28)};
+  --line-height-sm: #{variables.toRem(24)};
+
+  /* Additional Green theme specific properties */
+  --box-shadow: 0 2px 9px 0 rgb(83 145 158 / 30%);
+  --border-radius: #{variables.toRem(20)};
+
+  /* Container width */
+  --container: #{variables.toRem(1100)};
+}

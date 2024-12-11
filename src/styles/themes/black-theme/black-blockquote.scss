@@ -1,0 +1,9 @@
+@use '@common-styles/shared-themes/shared-blockquote';
+
+.black-theme {
+  @include shared-blockquote.shared-blockquote-theme;
+
+  .blockquote::after {
+    content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjI1IiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDIyNSAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xNi43NTAxIDE1OS43OTJINjQuNjI1MUw5Ni41NDE3IDk1Ljk1ODNWMC4yMDgyNTJIMC43OTE3NDhWOTUuOTU4M0g0OC42NjY3TDE2Ljc1MDEgMTU5Ljc5MlpNMTQ0LjQxNyAxNTkuNzkySDE5Mi4yOTJMMjI0LjIwOCA5NS45NTgzVjAuMjA4MjUySDEyOC40NThWOTUuOTU4M0gxNzYuMzMzTDE0NC40MTcgMTU5Ljc5MloiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+Cg==');
+  }
+}

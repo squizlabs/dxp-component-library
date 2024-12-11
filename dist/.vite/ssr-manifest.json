@@ -1,0 +1,9 @@
+{
+  "dxp/component-service/banner/js/frontend.js": [],
+  "dxp/component-service/testimonials/js/frontend.js": [],
+  "src/entry-server.js": [],
+  "src/scripts/common/navbar.js": [],
+  "src/scripts/common/switcher.js": [],
+  "src/scripts/main.js": [],
+  "src/styles/main.scss": []
+}

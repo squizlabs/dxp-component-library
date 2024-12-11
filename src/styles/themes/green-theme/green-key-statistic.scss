@@ -1,0 +1,25 @@
+@use '@common-styles/variables';
+
+.green-theme {
+  .stats-cards {
+    .stat-card {
+      background-color: var(--primary);
+      border-radius: var(--border-radius);
+      font-family: var(--font-headings);
+      font-weight: var(--font-semibold);
+      font-size: var(--font-size-xxl);
+
+      &__text {
+        margin: calc(var(--spacing-sm) * -1) 0 var(--spacing-md);
+      }
+
+      &__value {
+        color: var(--accent);
+        margin-bottom: 0;
+        font-weight: var(--font-bold);
+        height: #{variables.toRem(150)};
+        min-height: auto;
+      }
+    }
+  }
+}

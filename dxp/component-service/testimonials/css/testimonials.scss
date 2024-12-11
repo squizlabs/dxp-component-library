@@ -1,0 +1,87 @@
+@use '@styles/common/mixins';
+@use '@styles/common/variables';
+
+.testimonials {
+  position: relative;
+
+  &__item {
+    @include mixins.flex-center-content;
+
+    flex-direction: column;
+    width: 100%;
+    padding: variables.toRem(24) variables.toRem(64);
+    background: var(--white);
+    color: var(--color-text);
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      padding: 0;
+    }
+
+    p {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-normal);
+      line-height: var(--line-height-md);
+      text-align: center;
+    }
+  }
+
+  &__author {
+    margin-top: var(--spacing-md);
+    font-weight: var(--font-semibold);
+  }
+
+  &__track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0;
+    // Hide scrollbar
+    scrollbar-width: none;
+
+    > li {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      list-style-type: none;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    top: calc(50% - var(--spacing-lg));
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      top: 100%;
+    }
+
+    [disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &__button {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: var(--spacing-xs);
+    background-color: transparent;
+    cursor: pointer;
+
+    &--prev {
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIzNCIgdmlld0JveD0iMCAwIDE4IDM0IiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTE3IDAuOTk5OTk5TDEgMTdMMTcgMzMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==');
+    }
+
+    &--next {
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIzNCIgdmlld0JveD0iMCAwIDE4IDM0IiBmaWxsPSJub25lIj4KPHBhdGggZD0iTTE3IDAuOTk5OTk5TDEgMTdMMTcgMzMiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==');
+      transform: rotate(180deg);
+    }
+  }
+}

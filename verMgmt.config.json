@@ -1,0 +1,13 @@
+{
+  "manifestGlob": "dxp/component-service/*/manifest.json",
+  "customCommands": [
+    {
+      "name": "Deploy Edge Components",
+      "value": "FEATURE_EDGE_COMPONENTS=true dxp-next cmp deploy ."
+    },
+    {
+      "name": "List root files (command: ls -l)",
+      "value": "ls -l"
+    }
+  ]
+}

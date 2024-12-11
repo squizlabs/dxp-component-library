@@ -1,0 +1,30 @@
+@use '@common-styles/mixins';
+@use '@common-styles/variables';
+
+.violet-theme {
+  .blockquote {
+    @include mixins.border-gradient(
+      left,
+      10px,
+      linear-gradient(to bottom, var(--gradient-blue), var(--gradient-violet))
+    );
+
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--color-text);
+    font-style: italic;
+
+    &__content {
+      padding: 0;
+    }
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      padding: var(--spacing-md);
+    }
+
+    &__author {
+      margin-top: var(--spacing-md);
+      font-size: var(--base-font-size);
+      font-weight: var(--font-bold);
+    }
+  }
+}

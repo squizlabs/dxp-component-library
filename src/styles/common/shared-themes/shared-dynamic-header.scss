@@ -1,0 +1,11 @@
+@mixin shared-dynamic-header-theme {
+  .header-paragraph {
+    h2 {
+      margin-bottom: var(--spacing-lg);
+    }
+
+    p {
+      margin-bottom: var(--spacing-sm);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use '@common-styles/shared-themes/shared-accordion';
+
+.black-theme {
+  @include shared-accordion.shared-accordion-theme;
+
+  .accordion {
+    &__heading {
+      &::after {
+        content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGxpbmUgeDE9IjcuNzI2MDciIHkxPSI3LjY5MDMyZS0wOCIgeDI9IjcuNzI2MDciIHkyPSIxNSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIzIi8+CjxsaW5lIHgxPSIxNC45MjI0IiB5MT0iNy41IiB4Mj0iMC40MjgyODgiIHkyPSI3LjUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K');
+      }
+
+      &:hover {
+        background-color: var(--primary);
+      }
+    }
+
+    &__item[open] .accordion__heading::after {
+      content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMyIgdmlld0JveD0iMCAwIDE1IDMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxsaW5lIHgxPSIxNC45MjI0IiB5MT0iMS41IiB4Mj0iMC40MjgyODgiIHkyPSIxLjUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMyIvPgo8L3N2Zz4K');
+    }
+  }
+}

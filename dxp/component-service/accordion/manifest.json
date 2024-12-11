@@ -1,0 +1,84 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "accordion",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a list of headings with hidden related content that users can reveal by clicking.",
+  "displayName": "Accordion",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "toc",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title to be displayed above the component."
+          },
+          "accordion": {
+            "title": "Accordion Items",
+            "description": "A list of expandable accordion items to be displayed.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "title": "Accordion Item",
+              "required": [
+                "heading",
+                "content"
+              ],
+              "properties": {
+                "heading": {
+                  "type": "string",
+                  "title": "Heading",
+                  "description": "The heading of the accordion item."
+                },
+                "content": {
+                  "type": "FormattedText",
+                  "title": "Content",
+                  "description": "The text that appears inside the accordion panel, hidden until the item is expanded."
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "accordion"
+        ]
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

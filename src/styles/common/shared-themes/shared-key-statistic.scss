@@ -1,0 +1,12 @@
+@mixin shared-key-statistics-theme {
+  .stats-cards {
+    .stat-card__value {
+      color: var(--color-bg);
+      background-color: var(--color-text);
+      border-radius: 0;
+      font-family: var(--font-headings);
+      font-weight: var(--font-bold);
+      font-size: var(--font-size-xxl);
+    }
+  }
+}

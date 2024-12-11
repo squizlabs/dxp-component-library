@@ -1,0 +1,110 @@
+{
+  "title": "Cards",
+  "link": {
+    "text": "CTA text link",
+    "url": "https://squiz.net",
+    "target": "_blank"
+  },
+  "cards": [
+    {
+      "contentType": "Painting",
+      "heading": "Oil painting session",
+      "supportingText": "The  Big Oxmox advised her not to do so, because there were thousands of bad  Commas, wild Question Marks and devious Semikoli, but the Little Blind lorem ipsu. The  Big Oxmox advised her not to do so, because there were thousands of bad  Commas, wild Question Marks and devious Semikoli, but the Little Blind lorem ipsu",
+      "link": {
+        "text": "CTA text link",
+        "url": "https://squiz.net",
+        "target": "_blank"
+      },
+      "image": {
+        "name": "My Image",
+        "alt": "This is the image alt text",
+        "imageVariations": {
+          "original": {
+            "url": "https://picsum.photos/600/600",
+            "width": 1500,
+            "height": 500,
+            "byteSize": 1000,
+            "mimeType": "image/jpeg",
+            "aspectRatio": "1:1",
+            "sha1Hash": "1234567890abcdef1234567890abcdef12345678"
+          }
+        }
+      }
+    },
+    {
+      "contentType": "Workshops",
+      "heading": "Crayon Coloring Workshop",
+      "supportingText": "Wild Question Marks and devious Semikoli, but the Little Blind lorem ipsum.",
+      "link": {
+        "text": "CTA text link",
+        "url": "https://squiz.net",
+        "target": "_blank"
+      },
+      "image": {
+        "name": "My Image",
+        "alt": "This is the image alt text",
+        "imageVariations": {
+          "original": {
+            "url": "https://picsum.photos/500/600",
+            "width": 1500,
+            "height": 500,
+            "byteSize": 1000,
+            "mimeType": "image/jpeg",
+            "aspectRatio": "1:1",
+            "sha1Hash": "1234567890abcdef1234567890abcdef12345678"
+          }
+        }
+      }
+    },
+    {
+      "contentType": "Workshops",
+      "heading": "Basics of Sculpture Workshop",
+      "supportingText": "The  Big Oxmox advised her not to do so, because there were thousands of bad  Commas, wild Question Marks and devious Semikoli, but the biggest issue.",
+      "link": {
+        "text": "CTA text link",
+        "url": "https://squiz.net",
+        "target": "_blank"
+      },
+      "image": {
+        "name": "My Image",
+        "alt": "This is the image alt text",
+        "imageVariations": {
+          "original": {
+            "url": "https://picsum.photos/700/600",
+            "width": 1500,
+            "height": 500,
+            "byteSize": 1000,
+            "mimeType": "image/jpeg",
+            "aspectRatio": "1:1",
+            "sha1Hash": "1234567890abcdef1234567890abcdef12345678"
+          }
+        }
+      }
+    },
+    {
+      "contentType": "Workshops",
+      "heading": "Acrylic on Canvas",
+      "supportingText": "The  Big Oxmox advised her not to do so, because there were thousands of bad  Commas, wild Question Marks and devious Semikoli, but the biggest issue.",
+      "link": {
+        "text": "CTA text link",
+        "url": "https://squiz.net",
+        "target": "_blank"
+      },
+      "image": {
+        "name": "My Image",
+        "alt": "This is the image alt text",
+        "imageVariations": {
+          "original": {
+            "url": "https://picsum.photos/800/600",
+            "width": 1500,
+            "height": 500,
+            "byteSize": 1000,
+            "mimeType": "image/jpeg",
+            "aspectRatio": "1:1",
+            "sha1Hash": "1234567890abcdef1234567890abcdef12345678"
+          }
+        }
+      }
+    }
+  ]
+}

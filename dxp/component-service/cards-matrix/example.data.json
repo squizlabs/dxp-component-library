@@ -1,0 +1,19 @@
+{
+  "title": "Cards",
+  "link": {
+    "text": "CTA text link",
+    "url": "https://squiz.net",
+    "target": "_blank"
+  },
+  "cards": [
+    {
+      "asset": "matrix-asset://api-identifier/44955"
+    },
+    {
+      "asset": "matrix-asset://api-identifier/45649"
+    },
+    {
+      "asset": "matrix-asset://api-identifier/45000"
+    }
+  ]
+}

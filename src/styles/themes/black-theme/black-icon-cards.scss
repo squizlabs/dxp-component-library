@@ -1,0 +1,5 @@
+@use '@common-styles/shared-themes/shared-icon-cards';
+
+.black-theme {
+  @include shared-icon-cards.shared-icon-cards-theme;
+}

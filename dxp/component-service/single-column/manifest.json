@@ -1,0 +1,126 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "single-column",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a single-column layout with an image on either the left or right side.",
+  "displayName": "Single Column",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "view_column",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Single Column Content",
+        "required": [
+          "componentContent",
+          "componentConfiguration"
+        ],
+        "properties": {
+          "componentContent": {
+            "type": "object",
+            "title": "Content",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Section Title",
+                "description": "The title displayed above the section."
+              },
+              "image": {
+                "type": "SquizImage",
+                "title": "Image",
+                "description": "The image displayed in the section."
+              },
+              "contentType": {
+                "type": "string",
+                "title": "Content Type",
+                "description": "The content type label displayed above the heading."
+              },
+              "heading": {
+                "type": "string",
+                "title": "Heading",
+                "description": "The main heading text."
+              },
+              "textContent": {
+                "type": "FormattedText",
+                "title": "Text Content",
+                "description": "The main text content displayed in the section."
+              },
+              "link": {
+                "type": "SquizLink",
+                "title": "Link",
+                "description": "The link displayed below the text content."
+              }
+            },
+            "required": [
+              "heading",
+              "textContent"
+            ]
+          },
+          "componentConfiguration": {
+            "type": "object",
+            "title": "Configuration",
+            "properties": {
+              "variant": {
+                "type": "string",
+                "title": "Variant",
+                "description": "Select the layout variant: text on the left or right side.",
+                "enum": [
+                  "text-right",
+                  "text-left"
+                ],
+                "default": "text-left"
+              }
+            },
+            "required": [
+              "variant"
+            ]
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "./example-data/example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    },
+    "switched": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "./example-data/example-switched.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

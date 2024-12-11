@@ -1,0 +1,34 @@
+@use '@common-styles/mixins';
+
+.green-theme {
+  .icon-cards-section {
+    @include mixins.expand-container;
+
+    background-color: var(--primary);
+    padding: var(--spacing-lg);
+  }
+
+  .icon-card {
+    text-align: center;
+
+    &__icon {
+      margin: 0 auto var(--spacing-md);
+    }
+
+    &__icon::after {
+      background-color: var(--color-bg);
+      border-radius: var(--border-radius);
+      padding: var(--spacing-lg);
+      z-index: inherit;
+    }
+
+    svg {
+      width: 100%;
+      z-index: 1;
+
+      * {
+        fill: var(--accent);
+      }
+    }
+  }
+}

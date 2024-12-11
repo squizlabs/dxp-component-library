@@ -1,0 +1,86 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "key-statistics",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays numeric statistics in up to five cards.",
+  "displayName": "Key Statistics",
+  "version": "1.1.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "insert_chart",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Key Statistics Content",
+        "required": [
+          "stats"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+            "description": "The title displayed above the key statistics."
+          },
+          "stats": {
+            "type": "array",
+            "title": "Statistics",
+            "description": "A list of up to five key statistics displayed in cards.",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "title": "Statistic",
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "title": "Value",
+                  "description": "The number representing the statistic.",
+                  "minLength": 1,
+                  "maxLength": 5
+                },
+                "text": {
+                  "type": "string",
+                  "title": "Supporting Text",
+                  "description": "The text providing additional context for the statistic."
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

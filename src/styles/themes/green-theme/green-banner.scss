@@ -1,0 +1,17 @@
+@use '@common-styles/mixins';
+
+.green-theme {
+  .banner {
+    @include mixins.expand-container;
+
+    &__content {
+      background-color: var(--overlay);
+      text-align: center;
+    }
+
+    &__title {
+      margin-bottom: 0;
+      color: var(--white);
+    }
+  }
+}

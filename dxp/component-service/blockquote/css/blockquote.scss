@@ -1,0 +1,22 @@
+@use '@styles/common/variables';
+
+.blockquote {
+  border-left: 1px solid var(--black);
+  color: var(--black);
+  font-size: var(--base-font-size);
+  line-height: var(--line-height-md);
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    padding: 0 variables.toRem(30);
+  }
+
+  &__author {
+    margin-top: variables.toRem(8);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-semibold);
+    font-style: normal;
+    display: inline-block;
+  }
+}
