@@ -145,9 +145,13 @@ Editors can choose a title and link to appear above the row of cards. Each card 
 
 ## Component Properties
 
-| Property       |        Property Description         |    Property Type      | Is Required | Default |
-| :------------- | :---------------------------------: | :-------------------: | :---------: | :-----: |
-| title          |    The title above the card grid    |       string          |             |         |
-| link           |       Link next to the title        | string (SquizLink)    |             |         |
-| rootnode       |        Matrix Asset                 |string (MatrixAssetUri)|      ✓      |         |
+| Property |     Property Description      |      Property Type      | Is Required | Default |
+|:---------|:-----------------------------:|:-----------------------:|:-----------:|:-------:|
+| title    | The title above the card grid |         string          |             |         |
+| link     |    Link next to the title     |   string (SquizLink)    |             |         |
+| rootnode |         Matrix Asset          | string (MatrixAssetUri) |      ✓      |         |
 ```
+
+## Inline editing
+
+Inline editing has not been added to every field — currently, `matrix-asset-uri` fields are not supported in the Visual Page Builder. Cards will be selected via the asset picker instead of being added manually, so inline editing has only been applied to static fields like title and link.

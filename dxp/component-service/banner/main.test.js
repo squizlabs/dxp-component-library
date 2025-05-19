@@ -37,21 +37,21 @@ describe('Banner', () => {
   it('should render the heading with the correct text', async () => {
     const result = await Banner.main(mockData);
 
-    expect(result).toContain('<h1 class="banner__title">Banner Heading</h1>');
+    expect(result).toContain('Banner Heading');
   });
 
   it('should not render the subheading if it is null or undefined', async () => {
     const dataWithoutSummary = { ...mockData, textContent: null };
     const result = await Banner.main(dataWithoutSummary);
 
-    expect(result).not.toContain('<p class="banner__text">');
+    expect(result).not.toContain('banner__text');
   });
 
   /* Color background - no video, no image */
   it('should render a default background if mediaType is none or missing', async () => {
     const result = await Banner.main(mockData);
 
-    expect(result).toContain('<div class="banner__background--default"></div>');
+    expect(result).toContain('banner__background--default');
     expect(result).not.toContain('<video');
     expect(result).not.toContain('<img');
   });
@@ -69,13 +69,9 @@ describe('Banner', () => {
 
     const videoResult = await Banner.main(mockVideoData);
 
-    expect(videoResult).toContain(
-      '<video class="banner__media" src="video.mp4" autoplay muted loop>'
-    );
+    expect(videoResult).toContain('video.mp4');
     expect(videoResult).not.toContain('<img');
-    expect(videoResult).not.toContain(
-      '<div class="banner__background--default">'
-    );
+    expect(videoResult).not.toContain('banner__background--default');
   });
 
   it('should render a play/pause button only for videos', async () => {
@@ -102,12 +98,8 @@ describe('Banner', () => {
     const videoResult = await Banner.main(mockVideoData);
     const imageResult = await Banner.main(mockImageData);
 
-    expect(videoResult).toContain(
-      'class="banner__button banner__button--pause"'
-    );
-    expect(imageResult).not.toContain(
-      'class="banner__button banner__button--pause"'
-    );
+    expect(videoResult).toContain('banner__button--pause');
+    expect(imageResult).not.toContain('banner__button--pause');
   });
 
   /* Image Background */
@@ -119,17 +111,17 @@ describe('Banner', () => {
           original: {
             url: 'https://picsum.photos/800/600'
           }
-        }
+        },
+        alt: 'Test image'
       }
     };
 
     const imageResult = await Banner.main(mockImageData);
 
-    expect(imageResult).toContain('<img');
+    expect(imageResult).toContain('https://picsum.photos/800/600');
+    expect(imageResult).toContain('Test image');
     expect(imageResult).not.toContain('<video');
-    expect(imageResult).not.toContain(
-      '<div class="banner__background--default">'
-    );
+    expect(imageResult).not.toContain('banner__background--default');
   });
 
   /* XSS */

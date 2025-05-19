@@ -39,21 +39,6 @@
         "text": "CTA text link",
         "url": "https://squiz.net",
         "target": "_blank"
-      },
-      "image": {
-        "name": "My Image",
-        "alt": "This is the image alt text",
-        "imageVariations": {
-          "original": {
-            "url": "https://picsum.photos/500/600",
-            "width": 1500,
-            "height": 500,
-            "byteSize": 1000,
-            "mimeType": "image/jpeg",
-            "aspectRatio": "1:1",
-            "sha1Hash": "1234567890abcdef1234567890abcdef12345678"
-          }
-        }
       }
     },
     {

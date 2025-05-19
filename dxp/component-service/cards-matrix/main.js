@@ -73,51 +73,53 @@ export default {
     return html`
       <section class="cards-section">
         ${title || link ? `<div class="cards__header">` : ``}
-        ${title ? `<h2 class="cards__title">${xssSafeContent(title)}</h2>` : ''}
+        ${title
+          ? `<h2 data-sq-field="title" class="cards__title">${xssSafeContent(title)}</h2>`
+          : ''}
         ${link
-        ? `<a href="${link.url}" target="${link.target}" class="cards__link">${xssSafeContent(link.text)}</a>`
-        : ''}
+          ? `<a href="${link.url}" target="${link.target}"  data-sq-field="link" class="cards__link">${xssSafeContent(link.text)}</a>`
+          : ''}
         ${title || link ? `</div>` : ``}
 
         <ul class="cards">
           <!-- Loop through the "cards" array to create each card. -->
           ${cardsData
-        ? cardsData
-          .map(
-            (card) => html`
+            ? cardsData
+                .map(
+                  (card) => html`
                     <!-- Conditionally add an image class for styling if an image is available -->
                     <li
                       class="cards__card${card.image?.url
-                ? ' cards__card--has-image'
-                : ''}"
+                        ? ' cards__card--has-image'
+                        : ''}"
                     >
-                      <!-- Conditionally add the image - use aria-hidden="true" if the image is decorative -->
-                      ${card.image?.url
-                ? `<img class="cards__image" src="${card.image.url}" alt="${card.image.attributes.alt}" />`
-                : ''}
+                      <!-- Entire card is wrapped in a link for full clickable area -->
+                      <a href="${card.link}" class="cards__card-link">
+                        <!-- Conditionally add the image - use aria-hidden="true" if the image is decorative -->
+                        ${card.image?.url
+                          ? `<img class="cards__image" src="${card.image.url}" alt="${card.image.attributes.alt}" />`
+                          : ''}
 
-                      <!-- Content Type is optional so it's necessary to apply conditional rendering -->
-                      ${card.contentType
-                ? `<p class="cards__content-type">${card.contentType}</p>`
-                : ''}
+                        <!-- Content Type is optional so it's necessary to apply conditional rendering -->
+                        ${card.contentType
+                          ? `<p class="cards__content-type">${card.contentType}</p>`
+                          : ''}
 
-                      <!-- Output the title, with conditional rendering for the link -->
-                      <h3 class="cards__heading">
-                        ${card.link
-                ? `<a href="${card.link}" class="cards__card-link">`
-                : ''}
-                        ${card.heading} ${card.link ? `</a>` : ''}
-                      </h3>
+                        <!-- Output the title, with conditional rendering for the link -->
+                        <h3 class="cards__heading">
+                          <span>${card.heading}</span>
+                        </h3>
 
-                      <!-- Supporting Text is optional so it's necessary to apply conditional rendering -->
-                      ${card.supportingText
-                ? `<p class="cards__supporting-text">${card.supportingText}</p>`
-                : ''}
+                        <!-- Supporting Text is optional so it's necessary to apply conditional rendering -->
+                        ${card.supportingText
+                          ? `<p class="cards__supporting-text">${card.supportingText}</p>`
+                          : ''}
+                      </a>
                     </li>
                   `
-          )
-          .join('')
-        : ''}
+                )
+                .join('')
+            : ''}
         </ul>
       </section>
     `;

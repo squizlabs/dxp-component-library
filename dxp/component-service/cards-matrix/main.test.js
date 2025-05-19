@@ -69,7 +69,9 @@ describe('Cards Matrix - Content', () => {
 
     const result = await Cards.main(mockData, { env });
 
-    expect(result).toContain('<h2 class="cards__title">Cards - Matrix Asset</h2>');
+    expect(result).toContain(
+      '<h2 data-sq-field="title" class="cards__title">Cards - Matrix Asset</h2>'
+    );
   });
 
   /* Link - header section */
@@ -77,13 +79,18 @@ describe('Cards Matrix - Content', () => {
     const mockData = {
       ...mockDataWrapper,
       title: null,
-      cards: []
+      cards: [],
+      link: {
+        url: 'https://squiz.net',
+        target: '_blank',
+        text: 'CTA text link'
+      }
     };
 
     const result = await Cards.main(mockData, { env });
 
-    expect(result).toContain(
-      '<a href="https://squiz.net" target="_blank" class="cards__link">CTA text link</a>'
+    expect(result).toMatch(
+      /<a href="https:\/\/squiz\.net" target="_blank"\s+data-sq-field="link" class="cards__link">CTA text link<\/a>/
     );
   });
 
@@ -193,7 +200,7 @@ describe('Cards Matrix - Content', () => {
             url: 'https://example.com/image.jpg',
             attributes: { alt: 'Alt Text' }
           }
-        }; // Dodanie obrazka
+        };
       }
       if (card.id === '45649') {
         return { ...card, image: null };

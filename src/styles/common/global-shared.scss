@@ -110,7 +110,8 @@ ul {
   padding-left: var(--spacing-md);
 }
 
-ol li, ul li {
+ol li,
+ul li {
   font-size: var(--base-font-size);
   line-height: var(--line-height-md);
   margin-bottom: var(--spacing-xs);

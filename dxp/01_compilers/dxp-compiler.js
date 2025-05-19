@@ -1,12 +1,13 @@
 import { globSync } from 'glob';
 import path from 'path';
 import * as esbuild from 'esbuild';
+import { promises as fs } from 'fs';
 
 // bundle components into a format for deployment
 (async () => {
   // get all component service directories
   const csComponents = globSync(
-    path.join('.', 'dxp', 'component-service', '*/')
+    path.posix.join('.', 'dxp', 'component-service', '*/')
   );
   // Define our array of build promises
   const allBuildPromises = [];
@@ -17,10 +18,10 @@ import * as esbuild from 'esbuild';
     const componentPath = csComponents[i];
     // process component
     let buildPromise = await esbuild.build({
-      entryPoints: [path.join(componentPath, 'main.js')],
+      entryPoints: [path.posix.join(componentPath, 'main.js')],
       bundle: true,
       treeShaking: true,
-      outdir: path.join(componentPath),
+      outdir: path.posix.join(componentPath),
       format: 'cjs',
       platform: 'node',
       target: 'node20',
@@ -38,4 +39,22 @@ import * as esbuild from 'esbuild';
   Promise.all(allBuildPromises).then(async () => {
     console.log('✅ build has completed successfully');
   });
+
+  async function copyImages() {
+    const images = globSync('./src/images/**/*.{png,jpg,jpeg,svg,gif}');
+    const outputDir = './dist/images';
+
+    await fs.mkdir(outputDir, { recursive: true });
+
+    await Promise.all(
+      images.map(async (image) => {
+        const fileName = path.basename(image);
+        const destPath = path.posix.join(outputDir, fileName);
+        await fs.copyFile(image, destPath);
+      })
+    );
+    console.log('✅ Images copied to dist/images');
+  }
+
+  await copyImages();
 })();

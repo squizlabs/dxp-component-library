@@ -23,7 +23,7 @@ describe('Dynamic Header', () => {
     const result = await DynamicHeader.main(mockData);
 
     expect(result).toContain(
-      '<h2 class="header-paragraph__title heading-secondary">Dynamic Header Component</h2>'
+      '<h2 data-sq-field="title" class="header-paragraph__title heading-secondary">Dynamic Header Component</h2>'
     );
   });
 
@@ -39,7 +39,7 @@ describe('Dynamic Header', () => {
       const result = await DynamicHeader.main(mockData);
 
       expect(result).toContain(
-        `<${level} class="header-paragraph__title ${titleClassMap[level]}">Dynamic Header Test</${level}>`
+        `<${level} data-sq-field="title" class="header-paragraph__title ${titleClassMap[level]}">Dynamic Header Test</${level}>`
       );
     });
   });
@@ -48,7 +48,9 @@ describe('Dynamic Header', () => {
   it('should render the content if provided', async () => {
     const result = await DynamicHeader.main(mockData);
 
-    expect(result).toContain('<p>Text content</p>');
+    expect(result).toContain(
+      '<span data-sq-field="content"><p>Text content</p></span>'
+    );
   });
 
   it('should not render content if it is null or undefined', async () => {

@@ -24,7 +24,8 @@
     }
 
     &::before {
-      background-image: linear-gradient(
+      background-image:
+        linear-gradient(
           to bottom,
           transparent 0%,
           transparent 50%,
@@ -40,7 +41,8 @@
     }
 
     &::after {
-      background-image: linear-gradient(
+      background-image:
+        linear-gradient(
           to bottom,
           transparent 0%,
           transparent 50%,
@@ -157,5 +159,4 @@
   pre code {
     color: var(--white);
   }
-
 }

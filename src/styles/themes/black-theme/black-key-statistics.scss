@@ -1,0 +1,5 @@
+@use '@common-styles/shared-themes/shared-key-statistics';
+
+.black-theme {
+  @include shared-key-statistics.shared-key-statistics-theme;
+}

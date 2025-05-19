@@ -23,9 +23,9 @@ export default {
     <section class="header-paragraph">
       <div class="container">
       <!-- Render the title with the corresponding heading level and dynamic class -->
-      <${titleLevel} class="header-paragraph__title ${titleClass}">${xssSafeContent(title)}</${titleLevel}>
+      <${titleLevel} data-sq-field="title" class="header-paragraph__title ${titleClass}">${xssSafeContent(title)}</${titleLevel}>
       <!-- Conditionally render the paragraph if "content" is provided -->
-      ${content ? `${xssSafeContent(content)}` : ''}
+      ${content ? `<span data-sq-field="content">${xssSafeContent(content)}</span>` : ''}
       </div>
     </section>
   `;

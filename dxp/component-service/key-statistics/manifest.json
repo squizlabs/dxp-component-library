@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays numeric statistics in up to five cards.",
   "displayName": "Key Statistics",
-  "version": "1.1.0",
+  "version": "2.0.4",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -21,14 +21,16 @@
       "input": {
         "type": "object",
         "title": "Key Statistics Content",
-        "required": [
-          "stats"
-        ],
+        "required": ["stats"],
         "properties": {
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "The title displayed above the key statistics."
+            "description": "The title displayed above the key statistics.",
+            "default": "Section title",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "stats": {
             "type": "array",
@@ -45,17 +47,23 @@
                   "title": "Value",
                   "description": "The number representing the statistic.",
                   "minLength": 1,
-                  "maxLength": 5
+                  "maxLength": 5,
+                  "default": "01",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "text": {
                   "type": "string",
                   "title": "Supporting Text",
-                  "description": "The text providing additional context for the statistic."
+                  "description": "The text providing additional context for the statistic.",
+                  "default": "Supporting text",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 }
               },
-              "required": [
-                "value"
-              ]
+              "required": ["value"]
             }
           }
         }

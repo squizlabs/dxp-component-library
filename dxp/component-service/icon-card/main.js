@@ -29,47 +29,58 @@ export default {
         <div class="container">
           <!-- Conditionally render title of the section -->
           ${title
-            ? `<h2 class="heading-secondary">${xssSafeContent(title)}</h2>`
+            ? html`<h2
+                data-sq-field="componentContent.title"
+                class="heading-secondary"
+              >
+                ${xssSafeContent(title)}
+              </h2>`
             : ''}
 
           <ul class="icon-cards ${columnsClass}">
             ${cards
-              .map(({ icon, heading, textContent, link }) => {
+              .map((card, idx) => {
                 const iconHtml =
-                  icon && iconMap[icon]
-                    ? `
-                    <div class="icon-card__icon">
-                      ${iconMap[icon].svg}
-                    </div>
-                  `
+                  card.icon && iconMap[card.icon]
+                    ? html`<div class="icon-card__icon">
+                        ${iconMap[card.icon].svg}
+                      </div>`
                     : '';
 
-                const headingHtml = heading
-                  ? `<h3 class="icon-card__heading">${xssSafeContent(heading)}</h3>`
+                const headingHtml = card.heading
+                  ? html`<h3
+                      data-sq-field="componentContent.cards[${idx}].heading"
+                      class="icon-card__heading"
+                    >
+                      ${xssSafeContent(card.heading)}
+                    </h3>`
                   : '';
 
-                const textContentHtml = `<p class="icon-card__text">${xssSafeContent(textContent)}</p>`;
-
+                const textContentHtml = html`<p
+                  data-sq-field="componentContent.cards[${idx}].textContent"
+                  class="icon-card__text"
+                >
+                  ${xssSafeContent(card.textContent)}
+                </p>`;
                 // Wrap the entire card content in an <a> tag if a link is provided
-                const cardContent = `
-                  ${iconHtml}
-                  ${headingHtml}
-                  ${textContentHtml}
+                const cardContent = html`
+                  ${iconHtml} ${headingHtml} ${textContentHtml}
                 `;
 
-                return link
-                  ? `
-                  <li class="icon-card">
-                    <a href="${xssSafeContent(link.url)}" target="${link.target}" class="icon-card__wrapper">
-                      ${cardContent}
-                    </a>
-                  </li>
-                `
-                  : `
-                  <li class="icon-card">
-                    ${cardContent}
-                  </li>
-                `;
+                return card.link?.url
+                  ? html`
+                      <li class="icon-card">
+                        <a
+                          href="${xssSafeContent(card.link.url)}"
+                          target="${card.link.target}"
+                          data-sq-field="componentContent.cards[${idx}].link"
+                          class="icon-card__wrapper"
+                        >
+                          ${cardContent}
+                        </a>
+                      </li>
+                    `
+                  : html` <li class="icon-card">${cardContent}</li> `;
               })
               .join('')}
           </ul>

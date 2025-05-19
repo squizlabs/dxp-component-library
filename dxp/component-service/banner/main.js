@@ -13,11 +13,11 @@ export default {
 
     // If a video source is provided, create a video element.
     if (mediaType === 'video') {
-      mediaElement = `<video class="banner__media" src="${videoSource.url}" autoplay muted loop></video>`;
+      mediaElement = `<video data-sq-field="videoSource" class="banner__media" src="${videoSource.url}" autoplay muted loop></video>`;
     }
     // If an image is provided, create an image element.
     else if (mediaType === 'image') {
-      mediaElement = `<img src="${image.imageVariations.original.url}" alt="${image.alt}" class="banner__media" />`;
+      mediaElement = `<img data-sq-field="image" src="${image.imageVariations.original.url}" alt="${image.alt}" class="banner__media" />`;
     }
     // If neither a video source nor an image is provided, create a default background element.
     else {
@@ -30,7 +30,9 @@ export default {
 
         ${mediaElement}
         <div class="banner__content">
-          <h1 class="banner__title">${xssSafeContent(heading)}</h1>
+          <h1 data-sq-field="heading" class="banner__title">
+            ${xssSafeContent(heading)}
+          </h1>
         </div>
 
         <!-- Additional buttons for play or pause - only for video -->

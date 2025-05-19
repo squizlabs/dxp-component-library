@@ -24,7 +24,7 @@ describe('Key Statistics', () => {
     const result = await KeyStatistics.main(mockData);
 
     expect(result).toContain(
-      '<h2 class="stats-cards__title heading-secondary">Key Statistics Section</h2>'
+      '<h2 class="stats-cards__title heading-secondary" data-sq-field="title">Key Statistics Section</h2>'
     );
   });
 

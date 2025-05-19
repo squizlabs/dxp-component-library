@@ -24,7 +24,7 @@ describe('Testimonials', () => {
     const result = await Testimonials.main(mockData);
 
     expect(result).toContain(
-      '<h2 class="heading-secondary">Testimonials Section</h2>'
+      '<h2 data-sq-field="title" class="heading-secondary">Testimonials Section</h2>'
     );
   });
 
@@ -32,7 +32,9 @@ describe('Testimonials', () => {
     const dataWithoutTitle = { ...mockData, title: null };
     const result = await Testimonials.main(dataWithoutTitle);
 
-    expect(result).not.toContain('<h2 class="heading-secondary">');
+    expect(result).not.toContain(
+      '<h2 data-sq-field="title" class="heading-secondary">'
+    );
   });
 
   it('should not render the heading tag if title is empty', async () => {

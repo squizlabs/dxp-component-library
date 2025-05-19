@@ -21,7 +21,7 @@ describe('Blockquote', () => {
     const result = await Blockquote.main(mockData);
 
     expect(result).toContain(
-      '<h2 class="heading-secondary">Blockquote section</h2>'
+      '<h2 data-sq-field="title" class="heading-secondary">Blockquote section</h2>'
     );
   });
 
@@ -45,7 +45,9 @@ describe('Blockquote', () => {
   it('should render the blockquote content', async () => {
     const result = await Blockquote.main(mockData);
 
-    expect(result).toContain('<div class="blockquote__content">');
+    expect(result).toContain(
+      '<div data-sq-field="quote" class="blockquote__content">'
+    );
     expect(result).toContain('<p>Quote content</p>');
   });
 
@@ -53,7 +55,9 @@ describe('Blockquote', () => {
   it('should render the author if provided', async () => {
     const result = await Blockquote.main(mockData);
 
-    expect(result).toContain('<cite class="blockquote__author">Author</cite>');
+    expect(result).toContain(
+      '<cite data-sq-field="author" class="blockquote__author">Author</cite>'
+    );
   });
 
   it('should not render the author tag if it is null or undefined', async () => {

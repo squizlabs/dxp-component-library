@@ -3,7 +3,8 @@
 @mixin shared-theme-settings {
   /* Font settings */
   --font: 'Roboto', sans-serif; // Default font for body text
-  --font-headings: 'Roboto Condensed', sans-serif; // Font for headings and titles
+  --font-headings:
+    'Roboto Condensed', sans-serif; // Font for headings and titles
 
   /* Font sizes */
   --font-size-xxl: #{variables.toRem(64)};

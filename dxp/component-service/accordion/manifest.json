@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a list of headings with hidden related content that users can reveal by clicking.",
   "displayName": "Accordion",
-  "version": "1.1.0",
+  "version": "2.0.4",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -24,7 +24,11 @@
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "The title to be displayed above the component."
+            "description": "The title to be displayed above the component.",
+            "default": "Section title",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "accordion": {
             "title": "Accordion Items",
@@ -35,28 +39,30 @@
             "items": {
               "type": "object",
               "title": "Accordion Item",
-              "required": [
-                "heading",
-                "content"
-              ],
+              "required": ["heading", "content"],
               "properties": {
                 "heading": {
                   "type": "string",
                   "title": "Heading",
-                  "description": "The heading of the accordion item."
+                  "description": "The heading of the accordion item.",
+                  "default": "Heading content",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "content": {
                   "type": "FormattedText",
                   "title": "Content",
-                  "description": "The text that appears inside the accordion panel, hidden until the item is expanded."
+                  "description": "The text that appears inside the accordion panel, hidden until the item is expanded.",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 }
               }
             }
           }
         },
-        "required": [
-          "accordion"
-        ]
+        "required": ["accordion"]
       },
       "output": {
         "responseType": "html"

@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays testimonials in a slider format.",
   "displayName": "Testimonials",
-  "version": "1.1.0",
+  "version": "2.0.2",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -24,7 +24,11 @@
           "title": {
             "type": "string",
             "title": "Section Title",
-            "description": "The title displayed above the testimonials section."
+            "description": "The title displayed above the testimonials section.",
+            "default": "Section Title",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "testimonials": {
             "title": "Testimonial Items",
@@ -38,24 +42,26 @@
                 "text": {
                   "type": "FormattedText",
                   "title": "Text Content",
-                  "description": "The testimonial text displayed inside the slide."
+                  "description": "The testimonial text displayed inside the slide.",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "author": {
                   "type": "string",
                   "title": "Author",
-                  "description": "The author's name displayed below the testimonial text."
+                  "description": "The author's name displayed below the testimonial text.",
+                  "default": "Author",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 }
               },
-              "required": [
-                "text",
-                "author"
-              ]
+              "required": ["text", "author"]
             }
           }
         },
-        "required": [
-          "testimonials"
-        ]
+        "required": ["testimonials"]
       },
       "output": {
         "responseType": "html"

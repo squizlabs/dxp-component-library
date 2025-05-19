@@ -2,51 +2,49 @@
 
 The DXP Component Library is a library of simple components built on Component Service technology.
 
-It demonstrates how to create DXP components using basic technologies like vanilla JavaScript. 
+It demonstrates how to create DXP components using basic technologies like vanilla JavaScript.
 
 The `/dxp/component-service/` directory contains ready-to-use and customizable components, ranging from simple to more complex examples, incorporating various data types supported by Component Service.
 
 The library is educational, with code comments explaining the behavior and functionality of the components.
 
-----
+---
 
 ## Pre-requisites
 
 1. [git](https://git-scm.com).
 
-	See _installing-git.md_, included in this repo, for `git` install procedures for macOS, Windows, and Linux.
+   See _installing-git.md_, included in this repo, for `git` install procedures for macOS, Windows, and Linux.
 
 2. [Node Version Manager](https://github.com/nvm-sh/nvm), aka `nvm`.
 
 3. [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-	We recommend using `nvm` to install Node.js and npm.
+   We recommend using `nvm` to install Node.js and npm.
 
 4. [DXP CLI](https://docs.squiz.net/squiz-dxp/latest/dxp-cli/), aka `dxp-next`.
 
-	```bash
-	npm install --global @squiz/dxp-cli-next
-	```
-	
-	See The [DXP CLI Install and upgrade](https://docs.squiz.net/squiz-dxp/latest/dxp-cli/get-started/installation.html) documentation for details and for upgrade instructions.
+   ```bash
+   npm install --global @squiz/dxp-cli-next
+   ```
 
-	
+   See The [DXP CLI Install and upgrade](https://docs.squiz.net/squiz-dxp/latest/dxp-cli/get-started/installation.html) documentation for details and for upgrade instructions.
+
 ## Files required for component creation:
 
-* `manifest.json`;
-* `preview.html`; and
-* `example.data.json`.
+- `manifest.json`;
+- `preview.html`; and
+- `example.data.json`.
 
 **NB:** examples of these files are included in the DXP Component Library.
-
 
 ## Getting Started
 
 To keep your work separate from the original and manage your changes independently, you can either
 
-* clone the repository and then detach the cloned repository from the source repo; or
+- clone the repository and then detach the cloned repository from the source repo; or
 
-* fork the repository.
+- fork the repository.
 
 Cloning and detaching is done entirely from your workstation.
 
@@ -56,22 +54,21 @@ Forking is a GitLab-specific procedure.
 
 1. Clone the repository
 
-	```bash
-	git@github.com:squizlabs/dxp-component-library.git
-	```
+   ```bash
+   git@github.com:squizlabs/dxp-component-library.git
+   ```
 
 2. Switch to the project directory
 
-	```bash
-	cd dxp-component-library
-	```
-
+   ```bash
+   cd dxp-component-library
+   ```
 
 3. Detach the project from the original Git repository:
 
-	```bash
-	rm -rf .git
-	```
+   ```bash
+   rm -rf .git
+   ```
 
 ### Fork the repository
 
@@ -83,47 +80,47 @@ Forking is a GitLab-specific procedure.
 
 4. Clone the forked repository to your local machine.
 
-	```bash
-	git@<forked-project-name-space>/<forked-project-name>.git
-	```
+   ```bash
+   git@<forked-project-name-space>/<forked-project-name>.git
+   ```
 
 5. Navigate to the project directory.
 
-	```bash
-	cd dxp-component-library
-	```
+   ```bash
+   cd dxp-component-library
+   ```
 
 ### Install necessary dependencies and check the Node.js version
 
 1. Run the npm install command to install necessary dependencies
 
-	```bash
-	npm install
-	```
+   ```bash
+   npm install
+   ```
 
 2. Check you are using the correct Node.js version
 
-	 A pseudo RUNCOM file, `.nvmrc`, can be placed in the root directory of a project. This file [sets the Node.js version to be used by that particular project](https://github.com/nvm-sh/nvm#nvmrc).
-	 
-	Assuming the `pwd` is `/path/to/dxp-component-library`, run
-	
-	```bash
-	nvm use
-	```
+   A pseudo RUNCOM file, `.nvmrc`, can be placed in the root directory of a project. This file [sets the Node.js version to be used by that particular project](https://github.com/nvm-sh/nvm#nvmrc).
 
-	The command should return something equivalent to the following:
-	
-	```bash
-	Found '/home/<username>/<path>/dxp-component-library/.nvmrc' with version <20>
-	Now using node v20 (npm v10.9.2)
-	```
+   Assuming the `pwd` is `/path/to/dxp-component-library`, run
 
-	If a `.nvmrc` file is not present in a project’s root directory, the command returns the following:
-	
-	```bash
-	No .nvmrc file found
-	Please see `nvm --help` or https://github.com/nvm-sh/nvm#nvmrc for more information.
-	```
+   ```bash
+   nvm use
+   ```
+
+   The command should return something equivalent to the following:
+
+   ```bash
+   Found '/home/<username>/<path>/dxp-component-library/.nvmrc' with version <20>
+   Now using node v20 (npm v10.9.2)
+   ```
+
+   If a `.nvmrc` file is not present in a project’s root directory, the command returns the following:
+
+   ```bash
+   No .nvmrc file found
+   Please see `nvm --help` or https://github.com/nvm-sh/nvm#nvmrc for more information.
+   ```
 
 ### View components
 
@@ -137,18 +134,17 @@ And open the port:
 
 1. Development frontend: `http://localhost:4000`.
 
-	This is the development preview with linked styles and scripts, ideal for active development.
-	
-	It supports Hot Module Replacement (HMR), allowing automatic reloads on code changes.
+   This is the development preview with linked styles and scripts, ideal for active development.
+
+   It supports Hot Module Replacement (HMR), allowing automatic reloads on code changes.
 
 2. Edge Component development webserver: `http://localhost:5555`.
 
-	This is a classic Edge Component development webserver with a raw preview of the component, useful for testing its rendering without additional UI layers.
+   This is a classic Edge Component development webserver with a raw preview of the component, useful for testing its rendering without additional UI layers.
 
 3. UI started on port: `http://localhost:3000`.
 
-	This port provides a CMS-like preview showing how the component’s fields (for example, string, SquizImage) are displayed in Matrix. It simulates the field setup UI for better context during development.
-
+   This port provides a CMS-like preview showing how the component’s fields (for example, string, SquizImage) are displayed in Matrix. It simulates the field setup UI for better context during development.
 
 ## Create a new component
 
@@ -174,32 +170,28 @@ dxp/
 
 All additional scripts and styles will automatically be included in `src/styles/main.scss` and `src/scripts/main.js`. These files are used to build the final output in the /dist directory, which you can connect through GitBridge.
 
-
 ### Project structure
 
 The project structure is straightforward, centered around the `component-service/` directory. The `src/` directory contains files facilitating development, such as shared scripts, styles, mixins, variables, and fonts.
 
-
 ### Component file descriptions
 
 | file                | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `example.data.json` | Contains example data passed to the component, displayed in previews and DXP.                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `main.js`           | Defines the component's structure, including classes and functions for state and appearance changes.                                                                                                                                                                                                                                                                                                                                                                                             |
 | `manifest.json`     | A critical file linking all others, specifying dependencies, defining preview data sources, and setting up input configurations in the CMS.<br><br>To learn more about the manifest and its individual fields, check the official documentation: [Preview Configuration](https://docs.squiz.net/component-service/latest/preview/preview-configuration.html) and [Edit Manifest File](https://docs.squiz.net/component-service/latest/tutorials/build-a-basic-component/edit-manifest-file.html) |
 | `preview.html`      | A wrapper for the component. Usually identical for each component.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `README.md`         | Component description with tips and property examples.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-
 ### Optional files:
 
 | file                  | description                                                                                                                                                  |
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `main.test.json`      | Tests for the component written in Vitest.                                                                                                                   |
 | `frontend.js`         | Custom scripts for the component.                                                                                                                            |
 | `name-component.scss` | Component-specific styles.<br><br>When adding global styles or colorful themes, it is recommended to start with `src/styles/common` and `src/styles/themes`. |
 | `frontend.test.js`    | Tests for custom scripts.                                                                                                                                    |
-
 
 ## Linters and formatters
 
@@ -209,13 +201,15 @@ Review the `package.json` to find commands to run these before pushing changes.
 
 **Note:** after setting up CI/CD, these commands will run automatically.
 
+## Visual Page Builder support
+
+All components in this repository have inline editing support for the Visual Page Builder. This allows quick editing in the preview column. For more details visit [Squiz Documentation](https://docs.squiz.net/page-builder/latest/building-components/index.html).
 
 ## Aliases
 
 Within the `/src` folder and styles, you can use aliases defined in `vite.config.js`.
 
 Avoid deep relative paths by using aliases such as `@images/logo.svg`.
-
 
 ## Utils
 
@@ -226,7 +220,6 @@ Utility functions for components are stored in `dxp/component-service/utils`:
 
 `html.js`
 : Tags template literals for syntax highlighting, readability, and structured HTML generation.
-
 
 ## Previewing a component
 
@@ -364,7 +357,7 @@ npm run build
 
 This will generate a `/dist` folder containing `main.js` and `main.css`.
 
-Push your changes to GIT, deploy your component as described in the *deploying a component* section below, and update the associated GitBridge connected to the CMS.
+Push your changes to GIT, deploy your component as described in the _deploying a component_ section below, and update the associated GitBridge connected to the CMS.
 
 ## Version management
 
@@ -400,24 +393,24 @@ By default, your component will not be styled in the DXP console preview. To add
 
 1. Create an additional `preview-dxp.html` file with the following structure:
 
-	```html
-	<!doctype html>
-	<html lang="en">
-  	<head>
-    	<meta charset="UTF-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  	  <title>DXP preview</title>
-    	<link
-      	rel="stylesheet"
-	      href="cms-domain/__data/assets/git_bridge/123/1234/dist/client.css"
-  	  />
-	  </head>
-  	<body>
-    	[component://output]
-	    <script src="cms-domain/__data/assets/git_bridge/123/1234/dist/client.js"></script>
-  	</body>
-	</html>
-	```
+   ```html
+   <!doctype html>
+   <html lang="en">
+     <head>
+       <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <title>DXP preview</title>
+       <link
+         rel="stylesheet"
+         href="cms-domain/__data/assets/git_bridge/123/1234/dist/client.css"
+       />
+     </head>
+     <body>
+       [component://output]
+       <script src="cms-domain/__data/assets/git_bridge/123/1234/dist/client.js"></script>
+     </body>
+   </html>
+   ```
 
 2. Deploy the code to the repository and update the existing GitBridge.
 

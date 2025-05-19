@@ -1,6 +1,6 @@
 import { expect } from 'vitest';
 import { xssSafeContent } from '../../utils/xss';
-import SingleColumn from './main.js';
+import ImageTextRow from './main.js';
 
 const mockData = {
   componentContent: {
@@ -28,22 +28,20 @@ const mockData = {
   }
 };
 
-describe('Single Column', () => {
+describe('Image Text Row', () => {
   /* General */
   it('should return valid HTML structure', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
     expect(result).toBeDefined();
-    expect(result).toContain('<section class="single-column-section">');
+    expect(result).toContain('image-text-row-section');
   });
 
   /* Title */
   it('should render the title if provided', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain(
-      '<h2 class="heading-secondary">Section Title</h2>'
-    );
+    expect(result).toContain('Section Title');
   });
 
   it('should not render the title if it is null or undefined', async () => {
@@ -54,9 +52,9 @@ describe('Single Column', () => {
         title: null
       }
     };
-    const result = await SingleColumn.main(dataWithoutTitle);
+    const result = await ImageTextRow.main(dataWithoutTitle);
 
-    expect(result).not.toContain('<h2 class="heading-secondary">');
+    expect(result).not.toContain('heading-secondary');
   });
 
   it('should not render the heading tag if title is empty', async () => {
@@ -67,22 +65,20 @@ describe('Single Column', () => {
         title: ''
       }
     };
-    const result = await SingleColumn.main(dataWithoutTitle);
+    const result = await ImageTextRow.main(dataWithoutTitle);
 
-    expect(result).not.toContain('<h2 class="heading-secondary">');
-    // Check if it's still render Single Column Section
-    expect(result).toContain('<section class="single-column-section">');
+    expect(result).not.toContain('heading-secondary');
+    // Check if it's still render Image Text Row Section
+    expect(result).toContain('image-text-row-section');
   });
 
   /* Image */
   it('should render the image if provided', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain('<div class="single-column__image">');
-    expect(result).toContain(
-      mockData.componentContent.image.imageVariations.original.url
-    );
-    expect(result).toContain(mockData.componentContent.image.alt);
+    expect(result).toContain('image-text-row__image');
+    expect(result).toContain('https://picsum.photos/800/600');
+    expect(result).toContain('Alt Image');
   });
 
   it('should not render the image section if image is missing', async () => {
@@ -90,26 +86,24 @@ describe('Single Column', () => {
       ...mockData,
       componentContent: { ...mockData.componentContent, image: null }
     };
-    const result = await SingleColumn.main(noImageMock);
+    const result = await ImageTextRow.main(noImageMock);
 
-    expect(result).not.toContain('<div class="single-column__image">');
-    expect(result).toContain('class="single-column text-right no-image"');
+    expect(result).not.toContain('image-text-row__image');
+    expect(result).toContain('no-image');
   });
 
   /* Content Heading */
   it('should render the Content Heading if provided', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain(
-      '<h3 class="single-column__heading">Content Heading</h3>'
-    );
+    expect(result).toContain('Content Heading');
   });
 
   /* Content Type */
   it('should render the Content Type if provided', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain('class="text-tag"');
+    expect(result).toContain('Content type');
   });
 
   it('should not render the Content Type if provided', async () => {
@@ -117,31 +111,24 @@ describe('Single Column', () => {
       ...mockData,
       componentContent: { ...mockData.componentContent, contentType: null }
     };
-    const result = await SingleColumn.main(noContentTypeMock);
+    const result = await ImageTextRow.main(noContentTypeMock);
 
-    expect(result).not.toContain('<span class="text-tag">');
+    expect(result).not.toContain('text-tag');
   });
 
   /* Text Content */
   it('should render the Text Content correctly', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain('<p>Text Content</p>');
-  });
-
-  /* Text Content */
-  it('should render the Text Content correctly', async () => {
-    const result = await SingleColumn.main(mockData);
-
-    expect(result).toContain('<p>Text Content</p>');
+    expect(result).toContain('Text Content');
   });
 
   /* Link */
   it('should render the link if provided', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain('href="https://squiz.net"');
-    expect(result).toContain('class="single-column__link"');
+    expect(result).toContain('https://squiz.net');
+    expect(result).toContain('CTA text link');
   });
 
   it('should not render the link if it is missing', async () => {
@@ -149,17 +136,17 @@ describe('Single Column', () => {
       ...mockData,
       componentContent: { ...mockData.componentContent, link: null }
     };
-    const result = await SingleColumn.main(noLinkMock);
+    const result = await ImageTextRow.main(noLinkMock);
 
-    expect(result).not.toContain('<a href="');
+    expect(result).not.toContain('image-text-row__link');
   });
 
   /* Left-Right settings */
   it('should apply the "text-right" class if variant is text-right', async () => {
-    const result = await SingleColumn.main(mockData);
+    const result = await ImageTextRow.main(mockData);
 
-    expect(result).toContain('class="single-column text-right');
-    expect(result).not.toContain('class="single-column text-left');
+    expect(result).toContain('text-right');
+    expect(result).not.toContain('text-left');
   });
 
   it('should apply the "text-left" class if variant is text-left', async () => {
@@ -168,19 +155,20 @@ describe('Single Column', () => {
       componentConfiguration: { variant: 'text-left' }
     };
 
-    const result = await SingleColumn.main(mockTextLeft);
+    const result = await ImageTextRow.main(mockTextLeft);
 
-    expect(result).toContain('class="single-column text-left');
-    expect(result).not.toContain('class="single-column text-right');
+    expect(result).toContain('text-left');
+    expect(result).not.toContain('text-right');
   });
 
   /* XSS */
   it('should sanitize all fields to prevent XSS', async () => {
-    const singleColumnWithScripts = {
+    const ImageTextRowWithScripts = {
       componentContent: {
         title: '<script>alert("xss")</script>',
         textContent: '<img src=x onerror=alert(1)>',
         heading: '<svg onload=alert(1)>',
+        contentType: '<b>bad()</b>',
         link: {
           text: '<a href="javascript:alert(1)">Click me</a>'
         }
@@ -190,24 +178,27 @@ describe('Single Column', () => {
       }
     };
 
-    const result = await SingleColumn.main(singleColumnWithScripts);
+    const result = await ImageTextRow.main(ImageTextRowWithScripts);
 
     expect(result).toContain(
-      xssSafeContent(singleColumnWithScripts.componentContent.title)
+      xssSafeContent(ImageTextRowWithScripts.componentContent.title)
     );
     expect(result).toContain(
-      xssSafeContent(singleColumnWithScripts.componentContent.textContent)
+      xssSafeContent(ImageTextRowWithScripts.componentContent.textContent)
     );
     expect(result).toContain(
-      xssSafeContent(singleColumnWithScripts.componentContent.heading)
+      xssSafeContent(ImageTextRowWithScripts.componentContent.heading)
     );
     expect(result).toContain(
-      xssSafeContent(singleColumnWithScripts.componentContent.link.text)
+      xssSafeContent(ImageTextRowWithScripts.componentContent.contentType)
+    );
+    expect(result).toContain(
+      xssSafeContent(ImageTextRowWithScripts.componentContent.link.text)
     );
 
     expect(result).not.toContain('<script>alert("xss")</script>');
-    expect(result).not.toContain('<img src=x onerror=alert(1)>');
     expect(result).not.toContain('<svg onload=alert(1)>');
-    expect(result).not.toContain('<a href="javascript:alert(1)">Click me</a>');
+    expect(result).not.toContain('<img src=x onerror=alert(1)>');
+    expect(result).not.toContain('href="javascript:alert(1)"');
   });
 });

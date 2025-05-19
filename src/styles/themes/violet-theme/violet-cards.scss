@@ -18,6 +18,12 @@
       @include mixins.clip-text(4);
     }
 
+    &__heading,
+    &__content-type,
+    &__supporting-text {
+      padding: 0 var(--spacing-md);
+    }
+
     &__link {
       border: none;
       padding: variables.toRem(4);
@@ -76,7 +82,6 @@
 
       > p,
       h3 {
-        padding: 0 var(--spacing-md);
         margin: 0;
       }
 
@@ -85,7 +90,7 @@
       }
 
       &:hover {
-        > * {
+        .cards__card-link > * {
           color: var(--color-bg);
           z-index: var(--z-index-default);
         }
@@ -98,10 +103,6 @@
           transform: none;
         }
       }
-    }
-
-    &__card-link:hover {
-      text-decoration: none;
     }
 
     &__image {

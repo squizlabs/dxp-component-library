@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a background media element such as a video, image, or a flat background color.",
   "displayName": "Banner Component",
-  "version": "1.1.0",
+  "version": "2.0.2",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -25,29 +25,27 @@
             "type": "string",
             "title": "Media Type",
             "description": "Select the type of background media: video, image, or a flat background color if none is selected.",
-            "enum": [
-              "video",
-              "image",
-              "none"
-            ],
-            "default": "none"
+            "enum": ["video", "image", "none"],
+            "default": "none",
+            "ui:metadata": {
+              "quickOption": true
+            }
           },
           "heading": {
             "type": "string",
             "title": "Heading",
-            "description": "Enter text for the main heading."
+            "description": "Enter text for the main heading.",
+            "default": "Heading content",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           }
         },
-        "required": [
-          "mediaType",
-          "heading"
-        ],
+        "required": ["mediaType", "heading"],
         "allOf": [
           {
             "if": {
-              "required": [
-                "mediaType"
-              ],
+              "required": ["mediaType"],
               "properties": {
                 "mediaType": {
                   "const": "video"
@@ -59,19 +57,18 @@
                 "videoSource": {
                   "type": "SquizLink",
                   "title": "Internal Video Source",
-                  "description": "Link to the internal video asset."
+                  "description": "Link to the internal video asset.",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 }
               },
-              "required": [
-                "videoSource"
-              ]
+              "required": ["videoSource"]
             }
           },
           {
             "if": {
-              "required": [
-                "mediaType"
-              ],
+              "required": ["mediaType"],
               "properties": {
                 "mediaType": {
                   "const": "image"
@@ -83,12 +80,13 @@
                 "image": {
                   "type": "SquizImage",
                   "title": "Image",
-                  "description": "Select the image to display in the banner."
+                  "description": "Select the image to display in the banner.",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 }
               },
-              "required": [
-                "image"
-              ]
+              "required": ["image"]
             }
           }
         ]

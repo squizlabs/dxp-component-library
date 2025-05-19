@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays child assets from a selected Matrix node as a grid of cards.",
   "displayName": "Cards - Matrix Root Node",
-  "version": "1.2.0",
+  "version": "2.0.2",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -34,19 +34,24 @@
       "entry": "main.js",
       "input": {
         "type": "object",
-        "required": [
-          "rootnode"
-        ],
+        "required": ["rootnode"],
         "properties": {
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "The title displayed above the cards."
+            "description": "The title displayed above the cards.",
+            "default": "Section title",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "link": {
             "type": "SquizLink",
             "title": "Link",
-            "description": "A link displayed next to the title."
+            "description": "A link displayed next to the title.",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "rootnode": {
             "type": "string",
