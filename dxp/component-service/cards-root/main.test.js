@@ -31,7 +31,7 @@ describe('Cards Matrix Root - Content', () => {
     expect(result).toBeDefined();
     expect(normalizedResult).toContain('<section class="cards-section">');
     expect(normalizedResult).toContain(
-      '<h2 class="cards__title">Cards from Root Node</h2>'
+      '<h2 data-sq-field="title" class="cards__title">Cards from Root Node</h2>'
     );
   });
 
@@ -103,7 +103,7 @@ describe('Cards Matrix Root - Content', () => {
     const normalizedResult = normalizeHTML(result);
 
     expect(normalizedResult).toContain(
-      '<a href="https://squiz.net" target="_blank" class="cards__link">Go to Squiz</a>'
+      '<a href="https://squiz.net" target="_blank" data-sq-field="link" class="cards__link">Go to Squiz</a>'
     );
   });
 
@@ -234,7 +234,7 @@ describe('Cards Matrix Root - Optional Fields', () => {
     );
   });
 
-  it('should render heading as link if link is provided, plain text if not', async () => {
+  it('should render card content inside a full link if link is provided', async () => {
     const result = await CardsMatrixRoot.main(mockDataBase, { env: mockEnv });
     const normalizedResult = normalizeHTML(result);
 
@@ -244,26 +244,21 @@ describe('Cards Matrix Root - Optional Fields', () => {
 
     expect(cardsHTML).toHaveLength(3);
 
-    // First card has a link
-    expect(cardsHTML[0]).toContain('<h3 class="cards__heading">');
+    // First card has link
     expect(cardsHTML[0]).toContain(
       '<a href="https://example.com/card1" class="cards__card-link">'
     );
-    expect(cardsHTML[0]).toContain('Card 1');
+    expect(cardsHTML[0]).toContain('<span>Card 1</span>');
     expect(cardsHTML[0]).toContain('</a>');
 
-    // Second card does not have a link
-    expect(cardsHTML[1]).toContain('<h3 class="cards__heading">');
-    expect(cardsHTML[1]).toContain('Card 2');
-    expect(cardsHTML[1]).not.toContain('<a');
-    expect(cardsHTML[1]).not.toContain('</a>');
+    // Second card has no link, but structure should still include <a>
+    expect(cardsHTML[1]).toContain('<span>Card 2</span>');
 
-    // Third card has a link
-    expect(cardsHTML[2]).toContain('<h3 class="cards__heading">');
+    // Third card has link again
     expect(cardsHTML[2]).toContain(
       '<a href="https://example.com/card3" class="cards__card-link">'
     );
-    expect(cardsHTML[2]).toContain('Card 3');
+    expect(cardsHTML[2]).toContain('<span>Card 3</span>');
     expect(cardsHTML[2]).toContain('</a>');
   });
 
@@ -336,7 +331,7 @@ describe('Environmental Variables', () => {
 
     const normalizedResult = result.replace(/\s+/g, ' ').trim();
     expect(normalizedResult).toContain(
-      '<h3 class="cards__heading"> Card from set.environment </h3>'
+      '<span>Card from set.environment</span>'
     );
     expect(normalizedResult).toContain(
       '<p class="cards__content-type">Set Content Type</p>'

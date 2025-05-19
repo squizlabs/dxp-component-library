@@ -1,13 +1,14 @@
 export const getStarted = `
 <section class="container">
-<h1 id="dxp-component-library">DXP Component Library</h1>
+  <h1 id="dxp-component-library">DXP Component Library</h1>
 <p>This project provides a library of simple components built on Component Service technology. It demonstrates how to create components using basic technologies like vanilla JS, along with the required files for component creation: <code>manifest.json</code>, <code>preview.html</code>, and <code>example.data.json</code>.</p>
 <p>The library is educational, with code comments explaining the behavior and functionality of the components. In the <code>dxp/component-service/</code> directory, you&#39;ll find ready-to-use and customizable components, ranging from simple to more complex examples, incorporating various data types supported by Component Service.</p>
 <hr>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="cloning-the-repository">Cloning the Repository</h3>
 <p>Clone the repository and navigate to the project directory:</p>
-<pre><code>git@github.com:squizlabs/dxp-component-library.git</code></pre><pre><code>cd dxp-<span class="hljs-keyword">component</span>-<span class="hljs-keyword">library</span>
+<pre><code>git@gitlab<span class="hljs-selector-class">.squiz</span><span class="hljs-selector-class">.net</span>:centre-<span class="hljs-keyword">for</span>-enablement/edge-components-library.git
+</code></pre><pre><code>cd dxp-<span class="hljs-keyword">component</span>-<span class="hljs-keyword">library</span>
 </code></pre><h3 id="removing-git-connection">Removing Git Connection</h3>
 <p>Removing Git Connection</p>
 <p>To detach the project from the original Git repository:</p>

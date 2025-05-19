@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a grid of cards populated with information from Matrix assets.",
   "displayName": "Cards - Matrix",
-  "version": "1.3.0",
+  "version": "2.0.4",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -34,19 +34,24 @@
       "entry": "main.js",
       "input": {
         "type": "object",
-        "required": [
-          "cards"
-        ],
+        "required": ["cards"],
         "properties": {
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "The title displayed above the cards."
+            "description": "The title displayed above the cards.",
+            "default": "Section title",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "link": {
             "type": "SquizLink",
             "title": "Link",
-            "description": "A link displayed next to the title."
+            "description": "A link displayed next to the title.",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "cards": {
             "type": "array",
@@ -65,9 +70,7 @@
                   "description": "Select a Matrix asset to display as a card in the grid."
                 }
               },
-              "required": [
-                "asset"
-              ]
+              "required": ["asset"]
             }
           }
         }

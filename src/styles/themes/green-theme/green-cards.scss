@@ -6,6 +6,12 @@
     position: relative;
     grid-template-columns: repeat(2, 1fr);
 
+    &__heading,
+    &__content-type,
+    &__supporting-text {
+      padding: 0 var(--spacing-md);
+    }
+
     &__link {
       display: none;
     }
@@ -63,8 +69,14 @@
 
       > p,
       h3 {
-        padding: 0 var(--spacing-md);
+        /* padding: 0 var(--spacing-md); */
         margin: 0;
+      }
+
+      &:hover {
+        .cards__heading {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -88,6 +100,7 @@
       font-size: var(--font-size-xs);
       text-transform: capitalize;
       color: var(--accent);
+      margin: var(--spacing-sm) 0 0;
     }
 
     &__supporting-text {

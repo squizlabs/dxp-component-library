@@ -1,6 +1,6 @@
 @use '@styles/common/variables';
 
-.single-column {
+.image-text-row {
   display: flex;
   align-items: center;
   gap: variables.toRem(60);
@@ -11,7 +11,7 @@
   }
 
   &.text-left {
-    .single-column__image {
+    .image-text-row__image {
       order: 2;
 
       @media screen and (max-width: variables.$breakpoint-md) {
@@ -19,7 +19,7 @@
       }
     }
 
-    .single-column__content {
+    .image-text-row__content {
       order: 1;
     }
   }
@@ -27,7 +27,7 @@
   &.text-right {
     justify-content: end;
 
-    .single-column__image {
+    .image-text-row__image {
       order: 1;
 
       @media screen and (max-width: variables.$breakpoint-md) {
@@ -35,7 +35,7 @@
       }
     }
 
-    .single-column__content {
+    .image-text-row__content {
       order: 2;
     }
 

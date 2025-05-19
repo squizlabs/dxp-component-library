@@ -10,28 +10,29 @@ export default {
       <section class="stats-cards-section">
         <!-- Conditionally render title of the section -->
         ${title
-          ? `<h2 class="stats-cards__title heading-secondary">${xssSafeContent(title)}</h2>`
+          ? `<h2 class="stats-cards__title heading-secondary" data-sq-field="title">${xssSafeContent(title)}</h2>`
           : ''}
 
         <ul class="stats-cards">
           <!-- We loop through the "stats" array to create each card. The "stats" array is expected to contain exactly 4 items, each with a "value" and "text" property. -->
-
           ${stats
-            .map(
-              (stat) => html`
+            .map(({ value, text }, index) => {
+              return `
                 <li class="stat-card">
-                  <h3 class="stat-card__value">
-                    ${xssSafeContent(stat.value)}
+                  <h3 class="stat-card__value" data-sq-field="stats[${index}].value">
+                    ${xssSafeContent(value)}
                   </h3>
 
                   <!-- Supporting Text is optional so it's necessary to apply conditional rendering -->
 
-                  ${stat.text
-                    ? `<p class="stat-card__text">${xssSafeContent(stat.text)}</p>`
-                    : ''}
+                  ${
+                    text
+                      ? `<p class="stat-card__text" data-sq-field="stats[${index}].text">${xssSafeContent(text)}</p>`
+                      : ''
+                  }
                 </li>
-              `
-            )
+              `;
+            })
             .join('')}
         </ul>
       </section>

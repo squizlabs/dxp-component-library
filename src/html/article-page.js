@@ -10,9 +10,9 @@ export default async function () {
     <main class="container">
       <!--@@ cmp edge-dxp-comp-lib/banner @@-->
       ${Article}
-      <!--@@ cmp edge-dxp-comp-lib/single-column @@-->
-      <!--@@ cmp edge-dxp-comp-lib/single-column switched @@-->
-      <!--@@ cmp edge-dxp-comp-lib/single-column @@-->
+      <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
+      <!--@@ cmp edge-dxp-comp-lib/image-text-row switched @@-->
+      <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
     </main>
     ${Footer}
   `;

@@ -23,6 +23,7 @@
       background-color: var(--color-bg);
       left: var(--spacing-sm);
       position: relative;
+      text-decoration: none;
 
       &::after {
         content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDggMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xLjcwNDkyIDBMMC4yOTQ5MjIgMS40MUw0Ljg3NDkyIDZMMC4yOTQ5MjIgMTAuNTlMMS43MDQ5MiAxMkw3LjcwNDkyIDZMMS43MDQ5MiAwWiIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4KCg==');
@@ -32,6 +33,11 @@
       &:hover {
         text-decoration: none;
       }
+    }
+
+    &__card-link {
+      padding: var(--spacing-md);
+      text-decoration: none;
     }
 
     &__card {
@@ -46,11 +52,6 @@
       &:hover {
         background-color: var(--color-text);
 
-        .cards__card-link {
-          padding-left: 0;
-          text-decoration: none;
-        }
-
         .cards__heading {
           line-height: var(--line-height-lg);
           margin: 0;
@@ -61,7 +62,12 @@
         }
 
         .cards__supporting-text {
+          color: var(--color-bg);
           @include mixins.clip-text(10);
+        }
+
+        span {
+          padding: 0;
         }
       }
     }
@@ -74,7 +80,7 @@
       margin-top: auto;
       font-weight: var(--font-bold);
 
-      a {
+      span {
         padding: var(--spacing-xs);
         color: var(--color-bg);
         background-color: var(--color-text);

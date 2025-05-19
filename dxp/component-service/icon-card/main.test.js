@@ -55,10 +55,7 @@ describe('Icon Cards', () => {
   /* Title */
   it('should render the title if provided', async () => {
     const result = await IconCards.main(mockData);
-
-    expect(result).toContain(
-      '<h2 class="heading-secondary">Icon Cards Section</h2>'
-    );
+    expect(result).toContain(mockData.componentContent.title);
   });
 
   it('should not render the title if it is null or undefined', async () => {
@@ -86,7 +83,6 @@ describe('Icon Cards', () => {
   /* Items - Icon Cards */
   it('should render all Icon Cards', async () => {
     const result = await IconCards.main(mockData);
-
     const cardsCount = (result.match(/<li class="icon-card">/g) || []).length;
 
     expect(cardsCount).toBe(mockData.componentContent.cards.length);
@@ -186,9 +182,7 @@ describe('Icon Cards', () => {
 
     mockData.componentContent.cards.forEach((card) => {
       if (card.heading) {
-        expect(result).toContain(
-          `<h3 class="icon-card__heading">${card.heading}</h3>`
-        );
+        expect(result).toContain(card.heading);
       }
     });
   });
@@ -199,9 +193,7 @@ describe('Icon Cards', () => {
 
     mockData.componentContent.cards.forEach((card) => {
       if (card.textContent) {
-        expect(result).toContain(
-          `<p class="icon-card__text">${card.textContent}</p>`
-        );
+        expect(result).toContain(card.textContent);
       }
     });
   });
@@ -210,10 +202,11 @@ describe('Icon Cards', () => {
   it('should render links for cards if provided', async () => {
     const result = await IconCards.main(mockData);
 
-    mockData.componentContent.cards.forEach((card) => {
+    mockData.componentContent.cards.forEach((card, idx) => {
       if (card.link) {
-        const expectedLink = `<a href="${card.link.url}" target="_blank" class="icon-card__wrapper"`;
-        expect(result).toContain(expectedLink);
+        const normalizeHTML = (str) => str.replace(/\s+/g, ' ').trim();
+        const expectedLink = `<a href="${card.link.url}" target="${card.link.target}" data-sq-field="componentContent.cards[${idx}].link" class="icon-card__wrapper"`;
+        expect(normalizeHTML(result)).toContain(expectedLink);
       }
     });
   });

@@ -10,7 +10,7 @@ export default {
       <section class="testimonials-section">
         <!-- Conditionally render title of the section -->
         ${title
-          ? `<h2 class="heading-secondary">${xssSafeContent(title)}</h2>`
+          ? `<h2 data-sq-field="title" class="heading-secondary">${xssSafeContent(title)}</h2>`
           : ''}
 
         <div
@@ -25,12 +25,12 @@ export default {
             <!-- Loop through the "testimonials" array to create each slide. Each "testimonial" is expected to have "text" and "author" properties. -->
             ${testimonials
               .map(
-                (testimonial) => `
+                (testimonial, idx) => `
               <!-- Each slide in the carousel. Tabindex value is changed in scripts -->
               <li role="group" aria-roledescription="slide">
                 <div class="testimonials__item">
-                  ${xssSafeContent(testimonial.text)}
-                  <span class="testimonials__author">${xssSafeContent(testimonial.author)}</span>
+                  <span data-sq-field="testimonials[${idx}].text">${xssSafeContent(testimonial.text)}</span>
+                  <span data-sq-field="testimonials[${idx}].author" class="testimonials__author">${xssSafeContent(testimonial.author)}</span>
                 </div>
               </li>
             `

@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a grid of cards.",
   "displayName": "Cards",
-  "version": "1.2.0",
+  "version": "2.0.18",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -20,19 +20,24 @@
       "entry": "main.js",
       "input": {
         "type": "object",
-        "required": [
-          "cards"
-        ],
+        "required": ["cards"],
         "properties": {
           "title": {
             "type": "string",
             "title": "Title",
-            "description": "The title displayed above the cards."
+            "description": "The title displayed above the cards.",
+            "default": "Section title",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "link": {
             "type": "SquizLink",
             "title": "Link",
-            "description": "A link displayed next to the title."
+            "description": "A link displayed next to the title.",
+            "ui:metadata": {
+              "inlineEditable": true
+            }
           },
           "cards": {
             "type": "array",
@@ -47,33 +52,48 @@
                 "contentType": {
                   "type": "string",
                   "title": "Content Type",
-                  "description": "The content type displayed above the card's heading."
+                  "description": "The content type displayed above the card's heading.",
+                  "default": "Content type",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "heading": {
                   "type": "string",
                   "title": "Heading",
-                  "description": "The main heading of the card."
+                  "description": "The main heading of the card.",
+                  "default": "Heading",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "supportingText": {
                   "type": "string",
                   "title": "Supporting Text",
-                  "description": "The text displayed below the card's heading."
+                  "description": "The text displayed below the card's heading.",
+                  "default": "Supporting text",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "link": {
                   "type": "SquizLink",
                   "title": "Link",
-                  "description": "A link associated with the card."
+                  "description": "A link associated with the card.",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 },
                 "image": {
                   "type": "SquizImage",
                   "title": "Image",
-                  "description": "An image displayed in the card's background."
+                  "description": "An image displayed in the card's background.",
+                  "ui:metadata": {
+                    "inlineEditable": true
+                  }
                 }
               },
-              "required": [
-                "heading",
-                "link"
-              ]
+              "required": ["heading", "link"]
             }
           }
         }

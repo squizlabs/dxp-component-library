@@ -1,9 +1,9 @@
-@use '@common-styles/shared-themes/shared-single-column';
+@use '@common-styles/shared-themes/shared-image-text-row';
 
-.white-theme {
-  @include shared-single-column.shared-single-column-theme;
+.black-theme {
+  @include shared-image-text-row.shared-image-text-row-theme;
 
-  .single-column__link {
+  .image-text-row__link {
     &::after {
       content: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDggMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xLjcwNDkyIDBMMC4yOTQ5MjIgMS40MUw0Ljg3NDkyIDZMMC4yOTQ5MjIgMTAuNTlMMS43MDQ5MiAxMkw3LjcwNDkyIDZMMS43MDQ5MiAwWiIgZmlsbD0iI0MzNjQ3QyIvPgo8L3N2Zz4KCg==');
     }

@@ -1,7 +1,7 @@
 @use '../variables';
 
-@mixin shared-single-column-theme {
-  .single-column {
+@mixin shared-image-text-row-theme {
+  .image-text-row {
     gap: variables.toRem(80);
 
     &__heading {

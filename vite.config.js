@@ -1,8 +1,21 @@
 import { defineConfig } from 'vite';
 import viteGlobImport from 'vite-plugin-sass-glob-import';
 import path from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 import { dxp } from './dxp/01_compilers/vite-plugins';
+
+function reloadPlugin() {
+  return {
+    name: 'reload-plugin',
+    handleHotUpdate({ file, server }) {
+      if (file.includes('/dxp/')) {
+        server.ws.send({ type: 'full-reload' });
+        return [];
+      }
+    }
+  };
+}
 
 export default defineConfig(() => {
   return {
@@ -65,13 +78,26 @@ export default defineConfig(() => {
         }
       }
     },
-    plugins: [viteGlobImport(), dxp()],
+    plugins: [
+      reloadPlugin(),
+      viteGlobImport(),
+      dxp(),
+      viteStaticCopy({
+        targets: [
+          {
+            src: 'src/images/**/*',
+            dest: 'images'
+          }
+        ]
+      })
+    ],
     esbuild: {
       supported: {
         'top-level-await': true // browsers can handle top-level-await features
       }
     },
     css: {
+      extract: true,
       preprocessorOptions: {
         scss: {
           api: 'modern-compiler' // or "modern", "legacy"

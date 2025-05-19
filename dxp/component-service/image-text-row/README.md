@@ -1,12 +1,12 @@
-# Single Column Component
+# Image Text Row Component
 
 ## Description
 
-The Single Column component allows users to create a layout with an image and a content. The component offers two variants: one with the image on the left and the content on the right, and another with the image on the right and the content on the left.
+The Image Text Row component allows users to create a layout with an image and a content. The component offers two variants: one with the image on the left and the content on the right, and another with the image on the right and the content on the left.
 
 ## Editing
 
-Users can customize the Single Column component by configuring its content and layout. The content includes an image, heading, text content, and link. The layout can be adjusted to place the image either on the left or the right side.
+Users can customize the Image Text Row component by configuring its content and layout. The content includes an image, heading, text content, and link. The layout can be adjusted to place the image either on the left or the right side.
 
 ## Properties Example:
 

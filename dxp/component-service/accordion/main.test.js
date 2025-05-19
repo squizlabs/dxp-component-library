@@ -20,11 +20,11 @@ describe('Accordion', () => {
   });
 
   /* Title */
-  it('should render the title if provided', async () => {
+  it('should render the title if provided with correct data-sq-field', async () => {
     const result = await Accordion.main(mockData);
 
     expect(result).toContain(
-      '<h2 class="heading-secondary">Accordion Section</h2>'
+      '<h2 data-sq-field="title" class="heading-secondary">Accordion Section</h2>'
     );
   });
 
@@ -32,25 +32,31 @@ describe('Accordion', () => {
     const dataWithoutTitle = { ...mockData, title: null };
     const result = await Accordion.main(dataWithoutTitle);
 
-    expect(result).not.toContain('<h2 class="heading-secondary">');
+    expect(result).not.toContain('<h2');
   });
 
-  it('should not render the heading tag if title is empty', async () => {
+  it('should not render the title if it is empty', async () => {
     const dataWithoutTitle = { ...mockData, title: '' };
     const result = await Accordion.main(dataWithoutTitle);
 
-    expect(result).not.toContain('<h2 class="heading-secondary">');
-    // Check if it's still render Accordion Section
+    expect(result).not.toContain('<h2');
     expect(result).toContain('<section class="accordion">');
   });
 
   /* Accordion items */
-  it('should render all accordion items', async () => {
+  it('should render all accordion items with correct data-sq-field', async () => {
     const result = await Accordion.main(mockData);
     const detailsCount = (
       result.match(/<details class="accordion__item">/g) || []
     ).length;
     expect(detailsCount).toBe(mockData.accordion.length);
+
+    mockData.accordion.forEach((item, idx) => {
+      expect(result).toContain(`data-sq-field="accordion[${idx}].heading"`);
+      expect(result).toContain(`data-sq-field="accordion[${idx}].content"`);
+      expect(result).toContain(xssSafeContent(item.heading));
+      expect(result).toContain(xssSafeContent(item.content));
+    });
   });
 
   it('should not render accordion items if the array is empty', async () => {
@@ -61,26 +67,37 @@ describe('Accordion', () => {
   });
 
   /* XSS */
-  it('should escape XSS in content', async () => {
+  it('should escape XSS in content and headings', async () => {
     const accordionDataWithScripts = {
       ...mockData,
       accordion: [
         {
-          title: 'Heading 1',
-          content: '<script>alert("xss")</script>'
+          heading: '<script>alert("xss-heading")</script>',
+          content: '<script>alert("xss-content")</script>'
         },
         {
-          title: 'Heading 2',
-          content: '<img src=x onerror=alert(1)>'
+          heading: '<img src=x onerror=alert(1)>',
+          content: '<img src=y onerror=alert(2)>'
         }
       ]
     };
 
     const result = await Accordion.main(accordionDataWithScripts);
 
-    expect(result).toContain(xssSafeContent('<script>alert("xss")</script>'));
+    // Assert escaped content appears
+    expect(result).toContain(
+      xssSafeContent('<script>alert("xss-heading")</script>')
+    );
+    expect(result).toContain(
+      xssSafeContent('<script>alert("xss-content")</script>')
+    );
     expect(result).toContain(xssSafeContent('<img src=x onerror=alert(1)>'));
-    expect(result).not.toContain('<script>alert("xss")</script>');
+    expect(result).toContain(xssSafeContent('<img src=y onerror=alert(2)>'));
+
+    // Assert raw content is not present
+    expect(result).not.toContain('<script>alert("xss-heading")</script>');
+    expect(result).not.toContain('<script>alert("xss-content")</script>');
     expect(result).not.toContain('<img src=x onerror=alert(1)>');
+    expect(result).not.toContain('<img src=y onerror=alert(2)>');
   });
 });

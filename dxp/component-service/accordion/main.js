@@ -10,19 +10,25 @@ export default {
       <section class="accordion">
         <!-- Conditionally render title of the section -->
         ${title
-          ? `<h2 class="heading-secondary">${xssSafeContent(title)}</h2>`
+          ? `<h2 data-sq-field="title" class="heading-secondary">${xssSafeContent(title)}</h2>`
           : ''}
 
         <!-- We loop through the "accordion" array to create each accordion. The "accordion" array is expected to contain items, each with a "heading" and "content" property. -->
         <!-- Use the details and summary tags for an accessible accordion -->
         ${accordion
           .map(
-            (item) => html`
+            (item, idx) => html`
               <details class="accordion__item">
-                <summary class="accordion__heading">
+                <summary
+                  data-sq-field="accordion[${idx}].heading"
+                  class="accordion__heading"
+                >
                   ${xssSafeContent(item.heading)}
                 </summary>
-                <div class="accordion__content">
+                <div
+                  data-sq-field="accordion[${idx}].content"
+                  class="accordion__content"
+                >
                   ${xssSafeContent(item.content)}
                 </div>
               </details>

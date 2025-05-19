@@ -9,7 +9,7 @@ export default async function generateManifestRecord(file) {
   const content = [];
   // get all manifest.json files
   const manifests = globSync(
-    path.join('.', 'dxp', 'component-service', '*', 'manifest.json')
+    path.posix.join('.', 'dxp', 'component-service', '*', 'manifest.json')
   );
 
   // Loop through each manifest.json file

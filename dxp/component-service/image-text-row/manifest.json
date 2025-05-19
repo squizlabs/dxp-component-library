@@ -1,10 +1,10 @@
 {
   "$schema": "http://localhost:3000/schemas/v1.json",
-  "name": "single-column",
+  "name": "image-text-row",
   "namespace": "edge-dxp-comp-lib",
-  "description": "Displays a single-column layout with an image on either the left or right side.",
-  "displayName": "Single Column",
-  "version": "1.1.0",
+  "description": "Displays a single row layout with an image on either the left or right side.",
+  "displayName": "Image Text Row",
+  "version": "2.0.1",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -20,11 +20,8 @@
       "entry": "main.js",
       "input": {
         "type": "object",
-        "title": "Single Column Content",
-        "required": [
-          "componentContent",
-          "componentConfiguration"
-        ],
+        "title": "Image Text Row Content",
+        "required": ["componentContent", "componentConfiguration"],
         "properties": {
           "componentContent": {
             "type": "object",
@@ -33,38 +30,56 @@
               "title": {
                 "type": "string",
                 "title": "Section Title",
-                "description": "The title displayed above the section."
+                "description": "The title displayed above the section.",
+                "default": "Section Title",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
               },
               "image": {
                 "type": "SquizImage",
                 "title": "Image",
-                "description": "The image displayed in the section."
+                "description": "The image displayed in the section.",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
               },
               "contentType": {
                 "type": "string",
                 "title": "Content Type",
-                "description": "The content type label displayed above the heading."
+                "description": "The content type label displayed above the heading.",
+                "default": "Content Type",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
               },
               "heading": {
                 "type": "string",
                 "title": "Heading",
-                "description": "The main heading text."
+                "description": "The main heading text.",
+                "default": "Heading",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
               },
               "textContent": {
                 "type": "FormattedText",
                 "title": "Text Content",
-                "description": "The main text content displayed in the section."
+                "description": "The main text content displayed in the section.",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
               },
               "link": {
                 "type": "SquizLink",
                 "title": "Link",
-                "description": "The link displayed below the text content."
+                "description": "The link displayed below the text content.",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
               }
             },
-            "required": [
-              "heading",
-              "textContent"
-            ]
+            "required": ["heading", "textContent"]
           },
           "componentConfiguration": {
             "type": "object",
@@ -74,16 +89,14 @@
                 "type": "string",
                 "title": "Variant",
                 "description": "Select the layout variant: text on the left or right side.",
-                "enum": [
-                  "text-right",
-                  "text-left"
-                ],
-                "default": "text-left"
+                "enum": ["text-right", "text-left"],
+                "default": "text-left",
+                "ui:metadata": {
+                  "quickOption": true
+                }
               }
             },
-            "required": [
-              "variant"
-            ]
+            "required": ["variant"]
           }
         }
       },

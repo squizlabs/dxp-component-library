@@ -2,7 +2,7 @@
 @use './violet-variables' as violet-theme-variables;
 
 .violet-theme {
-  .single-column {
+  .image-text-row {
     background: var(--primary);
     color: var(--color-bg);
     border-radius: var(--border-radius);

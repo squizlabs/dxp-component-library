@@ -63,7 +63,9 @@ describe('Cards Manual', () => {
   it('should render the title if provided', async () => {
     const result = await Cards.main(mockData);
 
-    expect(result).toContain('<h2 class="cards__title">Cards Section</h2>');
+    expect(result).toContain(
+      '<h2 data-sq-field="title" class="cards__title">Cards Section</h2>'
+    );
   });
 
   it('should render cards header if only title is provided', async () => {
@@ -71,7 +73,9 @@ describe('Cards Manual', () => {
     const result = await Cards.main(dataWithOnlyTitle);
 
     expect(result).toContain('<div class="cards__header">');
-    expect(result).toContain('<h2 class="cards__title">Cards Section</h2>');
+    expect(result).toContain(
+      '<h2 data-sq-field="title" class="cards__title">Cards Section</h2>'
+    );
     expect(result).not.toContain('class="cards__link"');
   });
 
@@ -81,7 +85,7 @@ describe('Cards Manual', () => {
 
     expect(result).toContain('<div class="cards__header">');
     expect(result).toContain(
-      '<a href="https://squiz.net" target="_blank" class="cards__link">CTA text link</a>'
+      '<a href="https://squiz.net" target="_blank" data-sq-field="link" class="cards__link">CTA text link</a>'
     );
     expect(result).not.toContain('<h2 class="cards__title">');
   });
@@ -116,17 +120,20 @@ describe('Cards Manual', () => {
 
     if (firstCard.image) {
       expect(result).toContain('class="cards__image"');
+      expect(result).toContain(`data-sq-field="cards[0].image"`);
       expect(result).toContain(firstCard.image.imageVariations.original.url);
       expect(result).toContain(firstCard.image.alt);
     }
 
     if (firstCard.contentType) {
       expect(result).toContain('class="cards__content-type"');
+      expect(result).toContain(`data-sq-field="cards[0].contentType"`);
       expect(result).toContain(firstCard.contentType);
     }
 
     if (firstCard.supportingText) {
       expect(result).toContain('class="cards__supporting-text"');
+      expect(result).toContain(`data-sq-field="cards[0].supportingText"`);
       expect(result).toContain(firstCard.supportingText);
     }
   });
@@ -157,9 +164,10 @@ describe('Cards Manual', () => {
     const firstCard = mockData.cards[0];
 
     if (firstCard.link) {
-      expect(result).toContain(
-        `<a href="${firstCard.link.url}" target="${firstCard.link.target}" class="cards__card-link">`
-      );
+      expect(result).toContain('class="cards__card-link"');
+      expect(result).toContain(`data-sq-field="cards[0].link"`);
+      expect(result).toContain(`href="${firstCard.link.url}"`);
+      expect(result).toContain(`target="${firstCard.link.target}"`);
     }
   });
 
@@ -173,7 +181,7 @@ describe('Cards Manual', () => {
 
     expect(result).toContain('<h3 class="cards__heading">');
     expect(result).not.toContain(
-      `<a href="${mockData.cards[0].link?.url}" target="${mockData.cards[0].link?.target}" class="cards__card-link">`
+      `<a href="${mockData.cards[0].link?.url}" target="${mockData.cards[0].link?.target}" data-sq-field="link" class="cards__card-link">`
     );
   });
 
@@ -182,7 +190,7 @@ describe('Cards Manual', () => {
     const result = await Cards.main(mockData);
 
     expect(result).toContain(
-      '<p class="cards__content-type">Content Type Card One</p>'
+      '<p data-sq-field="cards[0].contentType" class="cards__content-type">Content Type Card One</p>'
     );
   });
 
@@ -207,7 +215,7 @@ describe('Cards Manual', () => {
     const result = await Cards.main(mockDataWithSupportingText);
 
     expect(result).toContain(
-      '<p class="cards__supporting-text">Test Supporting Text</p>'
+      '<p data-sq-field="cards[0].supportingText" class="cards__supporting-text">Test Supporting Text</p>'
     );
   });
 
