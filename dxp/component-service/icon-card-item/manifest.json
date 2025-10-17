@@ -1,0 +1,87 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "icon-card-item",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Single icon card item (100% width) to embed inside layouts.",
+  "displayName": "Icon Card – Single",
+  "version": "1.0.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "insert_emoticon",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Icon Card Item",
+        "required": ["componentContent"],
+        "properties": {
+          "componentContent": {
+            "type": "object",
+            "title": "Content",
+            "required": ["textContent"],
+            "properties": {
+              "icon": {
+                "type": "string",
+                "title": "Icon",
+                "description": "Key from iconMap",
+                "enum": ["paintBucket", "pen", "printer", "tools"]
+              },
+              "heading": {
+                "type": "string",
+                "title": "Heading",
+                "default": "Card heading",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              },
+              "textContent": {
+                "type": "FormattedText",
+                "title": "Content",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              },
+              "link": {
+                "type": "SquizLink",
+                "title": "Link",
+                "description": "Optional link for the whole card",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

@@ -45,6 +45,7 @@ export default defineConfig(() => {
         ),
         '@dxp': path.resolve(__dirname, './dxp'),
         '@components': path.resolve(__dirname, './dxp/component-service'),
+        '@layouts': path.resolve(__dirname, './dxp/layouts'),
         '@styles': path.resolve(__dirname, './src/styles'),
         '@common-styles': path.resolve(__dirname, './src/styles/common'),
         '@scripts': path.resolve(__dirname, './src/scripts'),

@@ -1,0 +1,18 @@
+@use '@common-styles/variables';
+
+.header-two-columns {
+  &__layout {
+    display: grid;
+    gap: var(--spacing-lg);
+    grid-template-columns: 1fr;
+
+    @media (min-width: variables.$breakpoint-md) {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  &__column {
+    min-width: 0;
+  }
+}

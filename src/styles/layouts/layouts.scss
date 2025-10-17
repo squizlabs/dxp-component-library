@@ -1,0 +1,131 @@
+@use '@common-styles/variables';
+
+.layout {
+  &__banner {
+    position: relative;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+  }
+
+  .banner,
+  .layout__banner {
+    margin-bottom: 0;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: var(--spacing-md);
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    width: 100vw;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'sidebar'
+      'main';
+  }
+
+  @media (min-width: variables.$breakpoint-md) {
+    &__wrapper {
+      grid-template-columns: auto 1fr;
+      grid-template-areas: 'sidebar main';
+    }
+  }
+
+  &--sidebar-right {
+    @media (min-width: variables.$breakpoint-md) {
+      .layout__wrapper {
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 'main sidebar';
+      }
+    }
+  }
+
+  /* Sidebar panel */
+  &__sidebar {
+    grid-area: sidebar;
+    width: 100%;
+    max-width: variables.toRem(300);
+    min-width: variables.toRem(300);
+    padding: 0 var(--spacing-md);
+    background-color: var(--accent);
+    position: relative;
+    color: var(--color-bg);
+    padding-top: var(--spacing-lg);
+
+    @media screen and (max-width: variables.$breakpoint-md) {
+      max-width: 100%;
+    }
+
+    .stack {
+      margin-bottom: 0;
+    }
+  }
+
+  h2.layout__nav-title {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-xl);
+    font-weight: bold;
+    margin: 0 0 var(--spacing-md);
+    color: var(--color-bg);
+    text-align: start;
+    width: 100%;
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__nav-list-item {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  /* Main content column */
+  &__main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.stack {
+  padding: var(--spacing-xl) var(--spacing-sm);
+
+  &__row {
+    margin-bottom: var(--spacing-xl);
+
+    section {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .cards::after {
+      content: none;
+    }
+  }
+}
+
+.layout-three-cols {
+  display: flex;
+  gap: var(--spacing-sm);
+
+  @media (max-width: variables.$breakpoint-md) {
+    flex-wrap: wrap;
+  }
+}
+
+.three-cols {
+  &__col {
+    flex: 1 1 100%;
+  }
+
+  &--3 {
+    @media (min-width: variables.$breakpoint-md) {
+      .three-cols__col {
+        flex: 1 1 calc(33.333% - var(--spacing-sm));
+      }
+    }
+  }
+}

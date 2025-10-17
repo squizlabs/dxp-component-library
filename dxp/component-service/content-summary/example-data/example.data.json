@@ -1,0 +1,12 @@
+{
+  "componentContent": {
+    "contentType": "Content type",
+    "heading": "Ut placet inquam tum est laborum",
+    "textContent": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel quam at nibh vehicula consequat. Suspendisse varius pharetra mi, ac fringilla nisi elementum nec. Nullam ac dignissim ex, at auctor dolor. Nullam tempus, nisi eget ornare tempus, ipsum justo consectetur arcu, et ultricies eros dui at est. Cras tincidunt eget ante vel porttitor. Vestibulum eu purus ut turpis dictum laoreet eu nec leo. Cras eget bibendum mi. Ut ullamcorper ultrices metus a vestibulum.</p>",
+    "link": {
+      "text": "CTA text link",
+      "url": "https://squiz.net",
+      "target": "_blank"
+    }
+  }
+}

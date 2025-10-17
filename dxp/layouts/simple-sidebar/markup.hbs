@@ -1,0 +1,21 @@
+<div class='layout layout--sidebar-{{options.sidebarPosition}}'>
+  {{#if zones.banner}}
+    <section class='layout__banner'>
+      {{zones.banner}}
+    </section>
+  {{/if}}
+
+  <div class='layout__wrapper'>
+    {{#if zones.sidebar}}
+      <aside class='layout__sidebar'>
+        {{zones.sidebar}}
+      </aside>
+    {{/if}}
+
+    {{#if zones.main}}
+      <main class='layout__main'>
+        <div class='container'>{{zones.main}}</div>
+      </main>
+    {{/if}}
+  </div>
+</div>

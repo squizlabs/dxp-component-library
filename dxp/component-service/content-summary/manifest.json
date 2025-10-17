@@ -1,0 +1,92 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "content-summary",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Displays a heading, text content and a link.",
+  "displayName": "Content Summary",
+  "version": "1.0.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "view_column",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Content Summary",
+        "required": ["componentContent"],
+        "properties": {
+          "componentContent": {
+            "type": "object",
+            "title": "Content",
+            "properties": {
+              "contentType": {
+                "type": "string",
+                "title": "Content Type",
+                "description": "The content type label displayed above the heading.",
+                "default": "Content Type",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              },
+              "heading": {
+                "type": "string",
+                "title": "Heading",
+                "description": "The main heading text.",
+                "default": "Heading",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              },
+              "textContent": {
+                "type": "FormattedText",
+                "title": "Text Content",
+                "description": "The main text content displayed in the section.",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              },
+              "link": {
+                "type": "SquizLink",
+                "title": "Link",
+                "description": "The link displayed below the text content.",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              }
+            },
+            "required": ["heading", "textContent"]
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "./example-data/example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}

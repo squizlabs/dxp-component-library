@@ -1,0 +1,13 @@
+@use '@styles/common/mixins';
+@use '@styles/common/variables';
+
+.green-theme {
+  .card--single {
+    height: variables.toRem(450);
+  }
+
+  .card--single .cards__cta {
+    color: var(--text);
+    text-decoration: underline;
+  }
+}

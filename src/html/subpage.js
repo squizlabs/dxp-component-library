@@ -8,8 +8,9 @@ export default async function () {
   return `
     ${Navigation}
       <div class="container">
-        <!--@@ cmp edge-dxp-comp-lib/banner video @@-->
+        <!--@@ cmp edge-dxp-comp-lib/banner @@-->
         ${Article}
+        <!--@@ cmp layouts-card/card @@-->
         <!--@@ cmp edge-dxp-comp-lib/cards-manual @@-->
         <!--@@ cmp edge-dxp-comp-lib/accordion @@-->
         <!--@@ cmp edge-dxp-comp-lib/testimonials @@-->
