@@ -7,6 +7,7 @@ export default async function () {
   return `
     ${Navigation}
     <main class="container">
+      <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
       <!--@@ cmp edge-dxp-comp-lib/banner @@-->
       <!--@@ cmp edge-dxp-comp-lib/dynamic-header @@-->
       <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->

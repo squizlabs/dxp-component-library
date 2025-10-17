@@ -3,46 +3,6 @@ import { globSync } from 'glob';
 import path from 'path';
 import generateManifestRecord from './manifest-compiler';
 
-/**
- * Make a fetch GET request and it if it fails retry N times with a X delay between requests
- * @param {String} url url to send the GET request to
- * @param {Object} options additional fetch options object
- * @param {Number} delay delay between requests in ms
- * @param {Number} retryCount max retry count
- * @returns {Promise}
- */
-const fetchWithRetry = async (
-  url,
-  options = {},
-  delay = 200,
-  retryCount = 3
-) => {
-  let attempts = 0;
-
-  const executeRequest = async () => {
-    try {
-      attempts++;
-      const response = await fetch(url, { ...options, method: 'GET' });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response;
-    } catch (error) {
-      if (attempts >= retryCount) {
-        throw error;
-      }
-      const cDelay = delay * attempts * 2;
-      console.warn(
-        `Request failed, retrying in ${cDelay}ms... (Attempt ${attempts}/${retryCount})`
-      );
-      await new Promise((resolve) => setTimeout(resolve, cDelay));
-      return executeRequest();
-    }
-  };
-
-  return executeRequest();
-};
-
 // Example asynchronous component rendering function
 async function renderComponent(path, previewKey) {
   try {
@@ -58,13 +18,8 @@ async function renderComponent(path, previewKey) {
       );
     }
     const [namespace, name, version] = resolvedManifestPath.split('/');
-    // kernel__helloworld__0.2.12?_previewKey=default
-    // const response = await fetch(`http://localhost:5555/dev/render/${namespace}__${name}__${version}?_previewKey=${previewKey}`);
-    const response = await fetchWithRetry(
-      `http://localhost:5555/dev/render/${namespace}__${name}__${version}?_previewKey=${previewKey}`,
-      {},
-      200,
-      10
+    const response = await fetch(
+      `http://localhost:5555/dev/render/${namespace}__${name}__${version}?_previewKey=${previewKey}`
     );
     const data = await response.text();
     return data;
@@ -83,18 +38,10 @@ export async function dxp() {
       // generate manifest entries
       generateManifestRecord('/manifest.json');
     },
-    buildStart() {
-      // console.log('#### buildStarts');
-    },
     async watchChange(file, { event }) {
-      // console.log('#### watchChange id', id)
       await generateManifestRecord(file);
     },
-    handleHotUpdate({ file, server }) {
-      // console.log('#### handleHotUpdate', file);
-    },
     async transform(code, id) {
-      //console.log('#### transform');
       if (process.env.NODE_ENV !== 'development') return;
       if (!id.includes('/src/html/') || !id.endsWith('.js')) return;
       if (!id.endsWith('.js')) return;

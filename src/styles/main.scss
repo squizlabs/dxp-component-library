@@ -4,6 +4,9 @@
 // All color themes
 @use 'themes/**/*';
 
+// All layouts
+@use 'layouts/**/*';
+
 // Components - styles for all components in the default theme.
 // @import 'components/**/*';
 @use '../../dxp/component-service/**/css/*';

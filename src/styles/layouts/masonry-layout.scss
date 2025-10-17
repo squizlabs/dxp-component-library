@@ -1,0 +1,38 @@
+@use '@common-styles/variables';
+
+.masonry {
+  column-gap: var(--spacing-sm);
+  column-count: 1;
+}
+
+@media (min-width: variables.$breakpoint-sm) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (min-width: variables.$breakpoint-md) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (min-width: variables.$breakpoint-lg) {
+  .masonry {
+    column-count: 4;
+  }
+}
+
+.single-image-item {
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  margin: 0 0 var(--spacing-sm);
+}
+
+.single-image-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}

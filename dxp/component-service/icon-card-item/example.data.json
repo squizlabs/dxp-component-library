@@ -1,0 +1,12 @@
+{
+  "componentContent": {
+    "icon": "pen",
+    "heading": "Short Heading",
+    "textContent": "Named Duden flows by their place and supplies it",
+    "link": {
+      "text": "Learn more",
+      "url": "https://squiz.net",
+      "target": "_self"
+    }
+  }
+}

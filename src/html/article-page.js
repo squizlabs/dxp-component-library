@@ -11,7 +11,6 @@ export default async function () {
       <!--@@ cmp edge-dxp-comp-lib/banner @@-->
       ${Article}
       <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
-      <!--@@ cmp edge-dxp-comp-lib/image-text-row switched @@-->
       <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
     </main>
     ${Footer}

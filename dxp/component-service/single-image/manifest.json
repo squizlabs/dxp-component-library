@@ -1,0 +1,66 @@
+{
+  "$schema": "http://localhost:3000/schemas/v1.json",
+  "name": "single-image",
+  "namespace": "edge-dxp-comp-lib",
+  "description": "Single image item",
+  "displayName": "Single Image",
+  "version": "1.0.0",
+  "type": "edge",
+  "mainFunction": "main",
+  "icon": {
+    "id": "image",
+    "color": {
+      "type": "enum",
+      "value": "gray"
+    }
+  },
+  "functions": [
+    {
+      "name": "main",
+      "entry": "main.js",
+      "input": {
+        "type": "object",
+        "title": "Single Image",
+        "required": ["componentContent"],
+        "properties": {
+          "componentContent": {
+            "type": "object",
+            "title": "Content",
+            "required": ["image"],
+            "properties": {
+              "image": {
+                "type": "SquizImage",
+                "title": "Image",
+                "description": "Single image to display.",
+                "ui:metadata": {
+                  "inlineEditable": true
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "responseType": "html"
+      }
+    }
+  ],
+  "staticFiles": {
+    "locationRoot": "./"
+  },
+  "previews": {
+    "default": {
+      "functionData": {
+        "main": {
+          "inputData": {
+            "type": "file",
+            "path": "./example.data.json"
+          },
+          "wrapper": {
+            "path": "preview.html"
+          }
+        }
+      }
+    }
+  }
+}
