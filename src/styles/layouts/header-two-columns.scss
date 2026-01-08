@@ -1,6 +1,18 @@
 @use '@common-styles/variables';
 
 .header-two-columns {
+  &__title--left {
+    text-align: left;
+  }
+
+  &__title--center {
+    text-align: center;
+  }
+
+  &__title--right {
+    text-align: right;
+  }
+
   &__layout {
     display: grid;
     gap: var(--spacing-lg);

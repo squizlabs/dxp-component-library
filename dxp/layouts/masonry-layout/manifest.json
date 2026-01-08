@@ -1,0 +1,13 @@
+{
+  "name": "masonry-gallery-layout",
+  "displayName": "Masonry Gallery Layout",
+  "description": "Pinterest-style masonry gallery for images/cards",
+  "entry": "markup.hbs",
+  "zones": [
+    {
+      "key": "items",
+      "displayName": "Items",
+      "description": "A collection of images/cards for the masonry grid"
+    }
+  ]
+}

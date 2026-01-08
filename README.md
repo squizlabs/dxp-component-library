@@ -173,7 +173,7 @@ dxp/
 
 All additional scripts and styles will automatically be included in `src/styles/main.scss` and `src/scripts/main.js`. These files are used to build the final output in the /dist directory, which you can connect through GitBridge.
 
-### Create a new layout
+## Create a new layout
 
 New layouts are created in the `dxp/layouts` directory by adding a folder named after the layout. Alternatively, an existing layout can be copied and names adjusted.
 
@@ -184,7 +184,7 @@ dxp/
 └── layouts/
     └── <layout-name>/
         ├── markup.hbs
-        ├── page-layout.yaml
+        ├── manifest.json
         ├── main.html # optional: mock content for preview
         ├── banner.html # optional: mock content for preview
         └──README.md
@@ -192,7 +192,7 @@ dxp/
 
 The two required files are:
 
-- **`page-layout.yaml`** — defines layout metadata, zones, and optional configuration values
+- **`manifest.json`** — defines layout metadata, zones, and optional configuration values
 - **`markup.hbs`** — defines the layout structure using Handlebars syntax
 
 Mock HTML files representing the content for each zone (e.g. `main.html`, `sidebar.html`) can be added to preview the layout locally.
@@ -205,8 +205,7 @@ The command starts a hot‑reloading development server and opens the layout at 
 Basic example:
 
 ```
-export ENABLE_PAGE_LAYOUTS=true
-dxp-next page layouts dev --config ./page-layout.yaml --zones=main=./main.html --stylesheet ./main.css
+dxp-next page layouts dev --config ./manifest.json --zones=main=./main.html --stylesheet ./main.css
 ```
 
 ### Project structure
@@ -236,10 +235,10 @@ The project structure is straightforward, centered around the `component-service
 
 The repository also contains page layouts under `dxp/layouts`. A layout is defined by two files:
 
-| file               | description                                                                                                              |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `markup.hbs`       | the HTML structure written in Handlebars; it declares the layout skeleton and where zones render.                        |
-| `page-layout.yaml` | the layout setup used by the CMS: layout ID, display name, description (shown in the DXP Console), and zone definitions. |
+| file            | description                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `markup.hbs`    | the HTML structure written in Handlebars; it declares the layout skeleton and where zones render.                        |
+| `manifest.json` | the layout setup used by the CMS: layout ID, display name, description (shown in the DXP Console), and zone definitions. |
 
 ## Linters and formatters
 
@@ -432,6 +431,18 @@ npm run deploy --name=component_name
 ```
 
 After deployment, add the component to a set. If this is the first deployment, it must be added manually. Subsequent deployments will automatically increment the version in the set.
+
+## Deploying layouts
+
+Before deploying layouts, make sure you are logged in to the correct tenant, as described in the section above.
+
+To deploy a layout, run the following command from the layout directory:
+
+```bash
+dxp-next page layouts deploy ./manifest.json
+```
+
+After deployment, the layout must be added to a component set in DXP. Just like components, layouts are only available in Page Builder once they are included in a set.
 
 ## Adding styles to the DXP console preview
 

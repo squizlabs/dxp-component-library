@@ -8,7 +8,7 @@ The **Simple Sidebar Layout** includes a full-width banner, a main content area,
 - **Display name:** Simple Sidebar Layout
 - **Description:** Layout with full-width banner, main content and a sidebar.
 - **Template file:** `markup.hbs`
-- **Config file:** `page-layout.yaml`
+- **Config file:** `manifest.json`
 
 ## Options
 
@@ -21,6 +21,5 @@ The **Simple Sidebar Layout** includes a full-width banner, a main content area,
 Run the local server with mock HTML files for each zone and a sidebar position option:
 
 ```
-export ENABLE_PAGE_LAYOUTS=true
-dxp-next page layouts dev --config ./page-layout.yaml --zones=banner=./banner.html --zones=main=./main.html --zones=sidebar=./sidebar.html --options=sidebarPosition=right --stylesheet ../../../dist/main.css
+dxp-next page layouts dev --config ./manifest.json --zones=banner=./banner.html --zones=main=./main.html --zones=sidebar=./sidebar.html --properties=sidebarPosition=right --stylesheet ../../../dist/main.css
 ```

@@ -1,9 +1,0 @@
-name: 'masonry-gallery-layout'
-displayName: 'Masonry Gallery Layout'
-description: 'Pinterest-style masonry gallery for images/cards'
-entry: 'markup.hbs'
-
-zones:
-  items:
-    displayName: 'Items'
-    description: 'A collection of images/cards for the masonry grid'
