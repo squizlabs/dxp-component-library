@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays numeric statistics in up to five cards.",
   "displayName": "Key Statistics",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -28,6 +28,7 @@
             "title": "Title",
             "description": "The title displayed above the key statistics.",
             "default": "Section title",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }
@@ -49,6 +50,7 @@
                   "minLength": 1,
                   "maxLength": 5,
                   "default": "01",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }
@@ -58,6 +60,7 @@
                   "title": "Supporting Text",
                   "description": "The text providing additional context for the statistic.",
                   "default": "Supporting text",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }

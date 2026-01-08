@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a grid of cards.",
   "displayName": "Cards",
-  "version": "2.0.18",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -27,6 +27,7 @@
             "title": "Title",
             "description": "The title displayed above the cards.",
             "default": "Section title",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }
@@ -54,6 +55,7 @@
                   "title": "Content Type",
                   "description": "The content type displayed above the card's heading.",
                   "default": "Content type",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }
@@ -63,6 +65,7 @@
                   "title": "Heading",
                   "description": "The main heading of the card.",
                   "default": "Heading",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }
@@ -72,6 +75,7 @@
                   "title": "Supporting Text",
                   "description": "The text displayed below the card's heading.",
                   "default": "Supporting text",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }

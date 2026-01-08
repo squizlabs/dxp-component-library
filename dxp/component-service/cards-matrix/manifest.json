@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a grid of cards populated with information from Matrix assets.",
   "displayName": "Cards - Matrix",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -41,6 +41,7 @@
             "title": "Title",
             "description": "The title displayed above the cards.",
             "default": "Section title",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }

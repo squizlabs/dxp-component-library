@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a quote with the author's name.",
   "displayName": "Block Quote",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -28,6 +28,7 @@
             "title": "Title",
             "description": "The title displayed above the quote.",
             "default": "Section title",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }
@@ -36,6 +37,7 @@
             "type": "FormattedText",
             "title": "Quote",
             "description": "The text of the quote.",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }
@@ -45,6 +47,7 @@
             "title": "Author",
             "description": "The name of the quote's author.",
             "default": "Author",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }

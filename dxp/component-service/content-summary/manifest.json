@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a heading, text content and a link.",
   "displayName": "Content Summary",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -32,6 +32,7 @@
                 "title": "Content Type",
                 "description": "The content type label displayed above the heading.",
                 "default": "Content Type",
+                "translatable": true,
                 "ui:metadata": {
                   "inlineEditable": true
                 }
@@ -41,6 +42,7 @@
                 "title": "Heading",
                 "description": "The main heading text.",
                 "default": "Heading",
+                "translatable": true,
                 "ui:metadata": {
                   "inlineEditable": true
                 }
@@ -49,6 +51,7 @@
                 "type": "FormattedText",
                 "title": "Text Content",
                 "description": "The main text content displayed in the section.",
+                "translatable": true,
                 "ui:metadata": {
                   "inlineEditable": true
                 }

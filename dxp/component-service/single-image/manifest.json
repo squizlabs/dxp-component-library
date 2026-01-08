@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Single image item",
   "displayName": "Single Image",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
