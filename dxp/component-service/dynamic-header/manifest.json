@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a heading and supporting text with a user-defined heading level.",
   "displayName": "Dynamic Header",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -28,6 +28,7 @@
             "title": "Title",
             "description": "The heading text to display.",
             "default": "Section title",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }
@@ -46,6 +47,7 @@
             "type": "FormattedText",
             "title": "Content",
             "description": "The text displayed below the heading.",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }

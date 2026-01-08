@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Single icon card item (100% width) to embed inside layouts.",
   "displayName": "Icon Card – Single",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -38,6 +38,7 @@
                 "type": "string",
                 "title": "Heading",
                 "default": "Card heading",
+                "translatable": true,
                 "ui:metadata": {
                   "inlineEditable": true
                 }
@@ -45,6 +46,7 @@
               "textContent": {
                 "type": "FormattedText",
                 "title": "Content",
+                "translatable": true,
                 "ui:metadata": {
                   "inlineEditable": true
                 }

@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a collection of cards with icons, headings, text content, and optional links.",
   "displayName": "Icon Cards",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -32,6 +32,7 @@
                 "title": "Section Title",
                 "description": "The title displayed above the icon cards section.",
                 "default": "Section title",
+                "translatable": true,
                 "ui:metadata": {
                   "inlineEditable": true
                 }
@@ -56,6 +57,7 @@
                       "title": "Heading",
                       "description": "The card's heading text.",
                       "default": "Card heading",
+                      "translatable": true,
                       "ui:metadata": {
                         "inlineEditable": true
                       }
@@ -64,6 +66,7 @@
                       "type": "FormattedText",
                       "title": "Content",
                       "description": "The main text content displayed on the card.",
+                      "translatable": true,
                       "ui:metadata": {
                         "inlineEditable": true
                       }

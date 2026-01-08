@@ -4,7 +4,7 @@
   "namespace": "edge-dxp-comp-lib",
   "description": "Displays a list of headings with hidden related content that users can reveal by clicking.",
   "displayName": "Accordion",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "type": "edge",
   "mainFunction": "main",
   "icon": {
@@ -26,6 +26,7 @@
             "title": "Title",
             "description": "The title to be displayed above the component.",
             "default": "Section title",
+            "translatable": true,
             "ui:metadata": {
               "inlineEditable": true
             }
@@ -46,6 +47,7 @@
                   "title": "Heading",
                   "description": "The heading of the accordion item.",
                   "default": "Heading content",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }
@@ -54,6 +56,7 @@
                   "type": "FormattedText",
                   "title": "Content",
                   "description": "The text that appears inside the accordion panel, hidden until the item is expanded.",
+                  "translatable": true,
                   "ui:metadata": {
                     "inlineEditable": true
                   }
