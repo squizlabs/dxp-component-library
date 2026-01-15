@@ -205,7 +205,7 @@ The command starts a hot‑reloading development server and opens the layout at 
 Basic example:
 
 ```
-dxp-next page layouts dev --config ./manifest.json --zones=main=./main.html --stylesheet ./main.css
+dxp-next page layouts dev ./manifest.json --zones=main=./main.html --stylesheet ./main.css
 ```
 
 ### Project structure
@@ -215,7 +215,7 @@ The project structure is straightforward, centered around the `component-service
 ### Component file descriptions
 
 | file                | description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `example.data.json` | Contains example data passed to the component, displayed in previews and DXP.                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `main.js`           | Defines the component's structure, including classes and functions for state and appearance changes.                                                                                                                                                                                                                                                                                                                                                                                             |
 | `manifest.json`     | A critical file linking all others, specifying dependencies, defining preview data sources, and setting up input configurations in the CMS.<br><br>To learn more about the manifest and its individual fields, check the official documentation: [Preview Configuration](https://docs.squiz.net/component-service/latest/preview/preview-configuration.html) and [Edit Manifest File](https://docs.squiz.net/component-service/latest/tutorials/build-a-basic-component/edit-manifest-file.html) |
@@ -225,7 +225,7 @@ The project structure is straightforward, centered around the `component-service
 ### Optional files:
 
 | file                  | description                                                                                                                                                  |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `main.test.json`      | Tests for the component written in Vitest.                                                                                                                   |
 | `frontend.js`         | Custom scripts for the component.                                                                                                                            |
 | `name-component.scss` | Component-specific styles.<br><br>When adding global styles or colorful themes, it is recommended to start with `src/styles/common` and `src/styles/themes`. |
@@ -236,7 +236,7 @@ The project structure is straightforward, centered around the `component-service
 The repository also contains page layouts under `dxp/layouts`. A layout is defined by two files:
 
 | file            | description                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------|
 | `markup.hbs`    | the HTML structure written in Handlebars; it declares the layout skeleton and where zones render.                        |
 | `manifest.json` | the layout setup used by the CMS: layout ID, display name, description (shown in the DXP Console), and zone definitions. |
 

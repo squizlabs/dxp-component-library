@@ -15,5 +15,5 @@ The **Three Columns Layout** displays three content zones side by side in equal 
 Run the local server with mock HTML files for each zone:
 
 ```
-dxp-next page layouts dev --config ./manifest.json --zones=col1=./column.1.html --zones=col2=./column.2.html --zones=col3=./column.3.html --stylesheet ../../../dist/main.css
+dxp-next page layouts dev ./manifest.json --zones=col1=./column.1.html --zones=col2=./column.2.html --zones=col3=./column.3.html --stylesheet ../../../dist/main.css
 ```

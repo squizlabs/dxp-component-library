@@ -15,5 +15,5 @@ The **Masonry Gallery Layout** arranges items in a dynamic, Pinterest-style maso
 Run the local server with mock HTML for the items zone:
 
 ```
-dxp-next page layouts dev --config ./manifest.json --zones=items=./image-content.html --stylesheet ../../../dist/main.css
+dxp-next page layouts dev ./manifest.json --zones=items=./image-content.html --stylesheet ../../../dist/main.css
 ```
