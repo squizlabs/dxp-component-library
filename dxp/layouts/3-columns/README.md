@@ -8,13 +8,12 @@ The **Three Columns Layout** displays three content zones side by side in equal 
 - **Display name:** Three Columns Layout
 - **Description:** Three columns side by side, responsive.
 - **Template file:** `markup.hbs`
-- **Config file:** `page-layout.yaml`
+- **Config file:** `manifest.json`
 
 ## Local Development
 
 Run the local server with mock HTML files for each zone:
 
 ```
-export ENABLE_PAGE_LAYOUTS=true
-dxp-next page layouts dev --config ./page-layout.yaml --zones=col1=./column.1.html --zones=col2=./column.2.html --zones=col3=./column.3.html --stylesheet ../../../dist/main.css
+dxp-next page layouts dev ./manifest.json --zones=col1=./column.1.html --zones=col2=./column.2.html --zones=col3=./column.3.html --stylesheet ../../../dist/main.css
 ```

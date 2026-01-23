@@ -1,4 +1,4 @@
-const Logo = "/favicon-96x96.png";
+const Logo = '/favicon-96x96.png';
 const Navigation = `
   <nav class="navbar container">
     <a class="navbar__brand" href="/">
@@ -52,7 +52,7 @@ const Navigation = `
     </div>
   </nav>
 `;
-const PaintTool = "/paint_icon.png";
+const PaintTool = '/paint_icon.png';
 const Footer = `
   <footer class="footer">
       <div class="container">
@@ -124,7 +124,6 @@ async function Homepage() {
   return `
     ${Navigation}
     <main class="container">
-      <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
       <!--@@ cmp edge-dxp-comp-lib/banner @@-->
       <!--@@ cmp edge-dxp-comp-lib/dynamic-header @@-->
       <!--@@ cmp edge-dxp-comp-lib/image-text-row @@-->
@@ -334,28 +333,28 @@ async function render(url, ssrManifest) {
   let htmlContent;
   let pageTitle;
   switch (url) {
-    case "":
-      pageTitle = "coreDXP";
+    case '':
+      pageTitle = 'coreDXP';
       htmlContent = await Index();
       break;
-    case "homepage":
-      pageTitle = "Home Page";
+    case 'homepage':
+      pageTitle = 'Home Page';
       htmlContent = await Homepage();
       break;
-    case "wysiwyg-elements":
-      pageTitle = "WysiwygElements";
+    case 'wysiwyg-elements':
+      pageTitle = 'WysiwygElements';
       htmlContent = await WysiwygElements();
       break;
-    case "article":
-      pageTitle = "Article Page";
+    case 'article':
+      pageTitle = 'Article Page';
       htmlContent = await ArticlePage();
       break;
-    case "subpage":
-      pageTitle = "Subpage";
+    case 'subpage':
+      pageTitle = 'Subpage';
       htmlContent = await Subpage();
       break;
     default:
-      pageTitle = "404 Not Found";
+      pageTitle = '404 Not Found';
       htmlContent = `<h1>404 - Page not found</h1>
       <p>😥 It is more than likely that you just need to add
       your page page to this file ./src/entry-server.js</p>
@@ -368,6 +367,4 @@ async function render(url, ssrManifest) {
     html: htmlContent
   };
 }
-export {
-  render
-};
+export { render };

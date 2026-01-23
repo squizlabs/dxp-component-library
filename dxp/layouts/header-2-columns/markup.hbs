@@ -1,13 +1,17 @@
 <section class='header-two-columns'>
   {{#if zones.sectionTitle}}
-    {{zones.sectionTitle}}
+    <div class='header-two-columns__title'>
+      {{zones.sectionTitle}}
+    </div>
   {{/if}}
+
   <div class='header-two-columns__layout'>
     {{#if zones.col1}}
       <div class='header-two-columns__column'>
         {{zones.col1}}
       </div>
     {{/if}}
+
     {{#if zones.col2}}
       <div class='header-two-columns__column'>
         {{zones.col2}}

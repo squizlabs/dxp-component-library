@@ -1,0 +1,23 @@
+{
+  "name": "simple-sidebar-layout",
+  "displayName": "Simple Sidebar Layout",
+  "description": "Layout with full-width banner, main content and a sidebar",
+  "entry": "markup.hbs",
+  "zones": [
+    {
+      "key": "banner",
+      "displayName": "Banner",
+      "description": "Full-width banner area"
+    },
+    {
+      "key": "main",
+      "displayName": "Main Content",
+      "description": "Primary content area"
+    },
+    {
+      "key": "sidebar",
+      "displayName": "Sidebar",
+      "description": "Sidebar for related content or navigation"
+    }
+  ]
+}

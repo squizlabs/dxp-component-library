@@ -1,0 +1,23 @@
+{
+  "name": "three-columns-layout",
+  "displayName": "Three Columns Layout",
+  "description": "Three columns side by side, responsive.",
+  "entry": "markup.hbs",
+  "zones": [
+    {
+      "key": "col1",
+      "displayName": "Column 1",
+      "description": "First column"
+    },
+    {
+      "key": "col2",
+      "displayName": "Column 2",
+      "description": "Second column"
+    },
+    {
+      "key": "col3",
+      "displayName": "Column 3",
+      "description": "Third column"
+    }
+  ]
+}
