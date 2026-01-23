@@ -19,13 +19,5 @@
       "displayName": "Sidebar",
       "description": "Sidebar for related content or navigation"
     }
-  ],
-  "properties": {
-    "sidebarPosition": {
-      "title": "Sidebar Position",
-      "description": "Choose whether the sidebar appears on the left or right",
-      "type": "string",
-      "enum": ["left", "right"]
-    }
-  }
+  ]
 }

@@ -19,13 +19,5 @@
       "displayName": "Column 2",
       "description": "The second column"
     }
-  ],
-  "properties": {
-    "alignmentOption": {
-      "title": "Align title",
-      "description": "Type of alignment to use",
-      "type": "string",
-      "enum": ["left", "center", "right"]
-    }
-  }
+  ]
 }

@@ -10,16 +10,10 @@ The **Simple Sidebar Layout** includes a full-width banner, a main content area,
 - **Template file:** `markup.hbs`
 - **Config file:** `manifest.json`
 
-## Options
-
-| Option key        | Display name     | Description                                              | Values          |
-|-------------------|------------------|----------------------------------------------------------|-----------------|
-| `sidebarPosition` | Sidebar Position | Choose whether the sidebar appears on the left or right. | `left`, `right` |
-
 ## Local Development
 
 Run the local server with mock HTML files for each zone and a sidebar position option:
 
 ```
-dxp-next page layouts dev ./manifest.json --zones=banner=./banner.html --zones=main=./main.html --zones=sidebar=./sidebar.html --properties=sidebarPosition=right --stylesheet ../../../dist/main.css
+dxp-next page layouts dev ./manifest.json --zones=banner=./banner.html --zones=main=./main.html --zones=sidebar=./sidebar.html --stylesheet ../../../dist/main.css
 ```
